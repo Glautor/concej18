@@ -69,7 +69,7 @@
                               <div class="price">
                                  <sup>R$</sup>
                                  <span id="price_js">
-                                 <%= '%.2f' % (@user.paid_lot_value + @user.taxa_pagseguro) %>
+                                 <%= '%.2f' % pagseguro(@user.paid_lot_value) %>
                                  </span>
                               </div>
                               * O PAGSEGURO cobra um acréscimo de 3,99%  + R$ 0,40 no preço da inscrição, no entanto, você tem a vantagem de poder parcelar em mais vezes, da forma que melhor lhe agradar.

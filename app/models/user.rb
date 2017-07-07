@@ -85,9 +85,6 @@ class User < ApplicationRecord
     self.is_fed? ? self.lot.value_federated : self.lot.value_not_federated
   end
 
-  def taxa_pagseguro
-    self.is_fed? ? 17.90 : 18.90
-  end
 
   def self.my_position(user)
     User.eligible.index(user) + 1

@@ -16,9 +16,12 @@ class Payment < ApplicationRecord
     self.user.is_fed? ? '- Federado' : '- Não Federado'
   end
 
-  #acressimo
-  def taxa_pagseguro
-    self.user.is_fed? ? 9.14 : 10.39
+  #acressimo 227.90
+  def price_pagseguro
+    percert_taxa = 0.0399
+    fixed_taxa = 0.4
+    total = (self.user.paid_lot_value + fixed_taxa) / (1 - percert_taxa)
+    return '%.2f' % total
   end
 
   def pay_pagseguro
@@ -38,7 +41,7 @@ class Payment < ApplicationRecord
     payment.items << {
       id: self.user.id,
       description: "#{self.user.lot.name} #{set_name_description}" ,
-      amount: self.price + taxa_pagseguro
+      amount: price_pagseguro
     }
 
     payment.sender = {
