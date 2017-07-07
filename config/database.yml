@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: egej_development
+test:
+  <<: *default
+  database: egej_test
+production:
+  <<: *default
+  database: egej_production
+  username: patrick
+  password: <%= ENV['CONCEITO_DATABASE_PASSWORD'] %>
