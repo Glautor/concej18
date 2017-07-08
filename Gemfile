@@ -53,6 +53,7 @@ gem 'prawn-rails'
 gem 'faker'
 gem 'cpf_faker'
 
+gem 'newrelic_rpm'
 
 #gem 'ajax-datatables-rails', git: 'https://github.com/ajahongir/ajax-datatables-rails.git'
 
