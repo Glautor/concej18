@@ -65,9 +65,9 @@ class NotificationsController < ApplicationController
       if !billet.nil?
         case params['event']
         when "PAYMENT_CREATED"
-
+          p 'PAGAMENTO CRIADO'
         when "PAYMENT_UPDATED"
-
+          p 'PAGAMENTO ATUALIZADO'
         when "PAYMENT_RECEIVED"
           billet.status = params['payment']['status']
           billet.client_payment_date = Time.now
@@ -82,13 +82,13 @@ class NotificationsController < ApplicationController
           billet.status = params['payment']['status']
           billet.save
         when :PAYMENT_DELETED
-
+          p 'PAGAMENTO DELETADO'
         end
 
       else
         PaymentNotificationsMailer.asaas_error(params['payment']).deliver_now if params['event']=="PAYMENT_RECEIVED"
       end
     end
-    render body: "SUCCESS", status: 200
+    render body: nil, status: 200
   end
 end
