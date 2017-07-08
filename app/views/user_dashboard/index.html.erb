@@ -109,8 +109,8 @@
                   <div class="alert alert-danger alert-dismissible">
                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                      <h4><i class="icon fa fa-info"></i>Você está na fila de espera, congressista!</h4>
-                     Infelizmente as vagas do lote acabaram :(<br>
-                     </br></br>
+                     Infelizmente, as vagas do lote promocional acabaram, mas fique ligado! O primeiro lote abre no dia 20/07.<br>
+                     </br>
                      <h5><b>Sua posição na fila é:</b>  <%= User.my_position(@user) %>° Lugar</h5>
                   </div>
                   <% else %>
@@ -119,7 +119,7 @@
                   <% if !@payment.nil? %>
                   <% if @payment.method == "Boleto" %>
                   <% if @billets_links.count ==0 %>
-                  OPS!! Parece que houve um erro ao gerar seu(s) boleto(s). <%=link_to 'Tentar novamente' %>
+                  OPS!! Parece que houve um erro ao gerar seu(s) boleto(s). <%#=link_to 'Tentar novamente' %>
                   <% end %>
 
                   <% @billets_links.each do |link| #, download: 'data'%>
