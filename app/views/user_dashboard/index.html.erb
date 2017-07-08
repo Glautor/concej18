@@ -108,7 +108,7 @@
                   <% elsif @user.lot.nil? && @user.active %>
                   <div class="alert alert-danger alert-dismissible">
                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                     <h4><i class="icon fa fa-info"></i>Você está na fila de espera, tripulante!</h4>
+                     <h4><i class="icon fa fa-info"></i>Você está na fila de espera, congressista!</h4>
                      Infelizmente as vagas do lote acabaram :(<br>
                      </br></br>
                      <h5><b>Sua posição na fila é:</b>  <%= User.my_position(@user) %>° Lugar</h5>
@@ -159,7 +159,7 @@
 
                   <% if @billets_links.where(status:'OVERDUE').any? %>
                   <h2 class="page-header"></h2>
-                  <h3 class="box-title __web-inspector-hide-shortcut__"> Fica de olho marujo, você tem boletos atrasados. :)</h3>
+                  <h3 class="box-title __web-inspector-hide-shortcut__"> Fica de olho empresário jr, você tem boletos atrasados. :)</h3>
 
                   <% @billets_links.where(status:'OVERDUE').each do |link| %>
                   <%= link_to link.boleto_url, target: '_blank' do %>

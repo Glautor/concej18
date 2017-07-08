@@ -1334,6 +1334,7 @@ a:focus {
 /* button groups */
 .btn-space {
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 .btn-group-vertical .btn.btn-flat:first-of-type,
 .btn-group-vertical .btn.btn-flat:last-of-type {
