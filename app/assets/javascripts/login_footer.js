@@ -26,10 +26,10 @@ $(document).ready(function() {
   });
   $( "#password" ).rules( "add", {
     required: true,
-    rangelength: [8,12],
+    rangelength: [8,30],
     messages: {
       required: "Entre com sua senha",
-      rangelength: "A senha deve conter entre 8 e 12 caracteres"
+      rangelength: "A senha deve conter entre 8 e 30 caracteres"
     }
   });
 });
