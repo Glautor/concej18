@@ -23,7 +23,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   def show
     if !params[:confirmation_token].nil?
       face = User.where(confirmation_token: params[:confirmation_token]).first
-      face.update_attributes!(active_face: true)
+      face.update_attributes!(active_face: true) if !face.nil?
     end
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
 
