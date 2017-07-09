@@ -5623,3 +5623,46 @@ opacity: 0.6
 .message__title a{
   color: #FFF;
 }
+
+/* RANKING */
+.ranking-ejs{ 
+  background: url(/images/barrinha3.png) repeat top;
+  padding-left:2px;
+  padding-top:1px;
+  float:left;
+  color: #fff;
+  font-size: 14px;
+  width: 65px;
+  text-align: center;
+  border-radius: 6px;
+  height:23px;
+  overflow:hidden;
+  font-weight: 700;
+  text-shadow: 0 1px #000;
+  margin:0px;
+  margin-bottom:1px;
+  margin-right: 5px;
+}
+.ranking-ejsul li .color-1 {
+  background-color: #222;
+
+}
+.ranking-ejsul li .color-2 {
+  background-color: #8f8ce9;
+
+}
+.ranking-ejsul li .color-3 {
+  background-color: #ffbd2e;
+
+}
+.ranking-ejsul li .color-4 {
+  background-color: #7AD177;
+
+}
+.ranking-ejsul li .color-5 {
+  background-color: #A80A24;
+
+}
+.ranking-ejsul li{
+  margin-bottom: 12px !important;  
+}

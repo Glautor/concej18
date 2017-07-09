@@ -25,6 +25,10 @@ class UserDashboardController < BaseController
       @federado = @user.federation_check.mb_chars.upcase
     end
 
+
+    #top 5
+    @ej = User.all.where.not(junior_enterprise:nil).order(:junior_enterprise).group_by{|d| d.junior_enterprise.split(' ').first.downcase}.sort_by { |k, v| v.count }.reverse.take(5)
+
   end
 
   def about
