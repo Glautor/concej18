@@ -7,6 +7,6 @@ class AsaasPayment < ApplicationRecord
   end
 
   def remove_asaas_billets
-    Asaas::Payments.Remove(self.payment_asaas_id)
+    Asaas::Payments.Remove(self.payment_asaas_id) if !self.payment_asaas_id.nil?
   end
 end

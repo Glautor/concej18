@@ -115,6 +115,8 @@ Rails.application.routes.draw do
       get "payment" => "checkout#new"
 
       post 'payment_billet' => 'checkout#billet', as: :payment_billet
+      put 'payment_billet_again' => 'checkout#try_again', as: :payment_billet_again
+
       post 'payment_pagseguro' => 'checkout#pagseguro', as: :payment_pagseguro
 
       post 'payment_deposit' => 'checkout#deposit', as: :payment_deposit
