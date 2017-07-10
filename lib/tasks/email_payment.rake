@@ -50,6 +50,18 @@ namespace :email_payment do
     end
     p "#{counter} EMAILS ENVIADOs PARA LEMBRAR O PAGAMENTO"
   end
+  
+  #rake email_payment:finalizar
+  task finalizar: :environment do
+    users = User.no_finalized
+    counter = 0;
+    users.each do |user|
+      UsersLotMailer.finalizar(user).deliver_now
+      p "Email enviado #{user.email}"
+      counter += 1
+    end
+    p "#{counter} EMAILS ENVIADOs PARA LEMBRAR O PAGAMENTO"
+  end
 
   
 end
