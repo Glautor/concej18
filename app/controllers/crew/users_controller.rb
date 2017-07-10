@@ -61,6 +61,10 @@ class Crew::UsersController < Crew::BaseController
     #junior_enterprise group('name AS grouped_name, age')
   end
 
+  def ejs_chat 
+     @ej = User.all.where.not(junior_enterprise:nil).order(:junior_enterprise).group_by{|d| d.junior_enterprise.split(' ').first.downcase}.sort_by { |k, v| v.count }.reverse
+  end
+
   def certificate
     @users = User.pays_total
   end

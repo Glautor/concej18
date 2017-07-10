@@ -5666,3 +5666,6 @@ opacity: 0.6
 .ranking-ejsul li{
   margin-bottom: 12px !important;  
 }
+#chart_div{
+  margin-top: 0px;
+}

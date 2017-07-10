@@ -56,6 +56,7 @@ Rails.application.routes.draw do
         #sistema
         get '/info_system' => 'admins#info', as: :system_info
         get '/ejs_list' => 'users#ejs_list', as: :ej_list
+        get '/ejs_chat' => 'users#ejs_chat', as: :ejs_chat
 
         #excel
         get 'excel/lot/users/:id' => 'excel#lot_users', as: :download_lot_users_excel
