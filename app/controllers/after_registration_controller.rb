@@ -48,7 +48,9 @@ class AfterRegistrationController < BaseController
     respond_to do |format|
       if @user.update_attributes(user_email_params)
         @user.update_attributes(unconfirmed_email: user_email_params[:email]) unless @user.errors.any?
-        @user.send_confirmation_instructions unless @user.errors.any? && @user.email != user_email_params[:email]
+        if @user.email == user_email_params[:email]
+          @user.send_confirmation_instructions unless @user.errors.any?
+        end
         flash[:success] = "Aguardando confirmação."
         format.html { redirect_to email_completar_path }
       else

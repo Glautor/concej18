@@ -114,8 +114,15 @@ class User < ApplicationRecord
         #CRIAR CONTA SE NÃO EXISITIR E SE LOTE TIVER ABERTO
         if !Lot.active_lot.nil?
           create do |user|
-            user.email = auth.info.email
-            user.email_face = auth.info.email
+            if auth.info.email.nil?
+              #GERAR RANDOM EMAIL
+              r_email = "gti_#{((1..1000).to_a).sample}_#{((2..3000).to_a).sample}@#{['hotmail.com','gmail.com','gti.com','yahoo.com','gti.com.br','eventi.com','random.com'].sample}"
+              user.email = r_email
+              user.email_face = r_email
+            else
+              user.email = auth.info.email
+              user.email_face = auth.info.email
+            end
             user.password = Devise.friendly_token[0,20]
             user.name = auth.info.name   # assuming the user model has a name
             user.remote_avatar_url = auth.info.image.gsub('http://','https://') unless auth.info.image.nil?
@@ -134,7 +141,6 @@ class User < ApplicationRecord
     else
       return {status: 'success', data: where(uid: auth.uid).first}
     end
-
   end
 
   # Exit room
