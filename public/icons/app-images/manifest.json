@@ -5,8 +5,8 @@
   "theme_color": "#1f2122",
   "background_color": "#ffffff",
   "display": "fullscreen",
-  "Scope": "/crew/login",
-  "start_url": "/crew/login",
+  "Scope": "/crew/",
+  "start_url": "/crew/admins/login",
   "icons": [
     {
       "src": "/icons/app-images/images/icons/icon-72x72.png",
