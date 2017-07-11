@@ -75,11 +75,8 @@
                         <%end %>
                         </td>
                         <td>
-                       
                         <% if @list %>
-                         <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> <%= j %> </span>
-
-                          <span class="label label-info pull-right" data-toggle="tooltip" title="" data-original-title="Data de inscrição: <%= users.created_at.strftime("%d/%m/%Y - %H:%M:%S") %>">Info</span>
+                         <span class="description-percentage text-green"><%= j %> </span>
                         <% else %>
                            <%= users.lot.nil? ? 'Não Alocado' : "Lote #{users.lot.number}"%>
                         <% end %>
