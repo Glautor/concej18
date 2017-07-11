@@ -5,6 +5,7 @@
   "theme_color": "#1f2122",
   "background_color": "#ffffff",
   "display": "fullscreen",
+  "Scope": "/crew/login",
   "start_url": "/crew/login",
   "icons": [
     {
