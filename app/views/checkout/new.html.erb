@@ -83,6 +83,29 @@
                         </div>
                      </div>
                   </div>
+                  
+                  <div class="info_pagseguro" align="center">
+                  <h2 align="center">PREÇOS</h2>
+                  <img class="img-responsive" src="https://stc.pagseguro.uol.com.br/public/img/banners/pagamento/todos_animado_550_50.gif" alt="Logotipos de meios de pagamento do PagSeguro" title="Este site aceita pagamentos com as principais bandeiras e bancos, saldo em conta PagSeguro e boleto.">
+                     <table class="table table-bordered">
+                        <thead>
+                           <tr>
+                              <th class="center noLeft">Parcelas</th>
+                              <th class="center">Valor da Parcela</th>
+                              <th class="center">Valor total da compra</th>
+                        </thead>
+                        <tbody>
+                        <% @parcelas.each do |i|%>
+                           <tr>
+                              <td class="center"><%=i %></td>
+                              <td><%=number_to_currency(@valores_parcela[i-1])%></td>
+                              <td><%=number_to_currency(@total_valores[i-1])%></td>
+                           </tr>
+                        <% end %>       
+                        </tbody>
+                     </table>   
+
+                  </div>
                </div>
                <!-- /.tab-pane -->
                   
