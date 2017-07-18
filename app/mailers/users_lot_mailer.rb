@@ -67,9 +67,9 @@ class UsersLotMailer < ApplicationMailer
   def remember_payment(user)
     @user = user
     unless @user.name.nil?
-      mail to: user.email, subject: "[EGEJ 2017] Última chamada, o navio vai zarpar!"
+      mail to: user.email, subject: "[EGEJ 2017] Não esqueça o pagamento!"
     else
-      mail to: user.email, subject: "[EGEJ 2017] Última chamada, o navio vai zarpar!"
+      mail to: user.email, subject: "[EGEJ 2017] Não esqueça o pagamento!"
     end
   end
 
