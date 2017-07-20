@@ -8,6 +8,7 @@ function create_BG_Video() {
     var type;
     //as ogg video may be with a '.ogv' extension, we have to watch for it      
     source.type = "video/mp4";
+    // video.controls = true;
     el.appendChild(source);
 
   el.className = 'bg_video';
@@ -27,7 +28,6 @@ jQuery(document).ready(function($) {
 
 
   if (window.matchMedia("(min-width: 769px)").matches) {
-    alert(1);
        $("#wrapper").tubular({
            videoId: 'gOdFz8B1sCE',
            mute: false,
@@ -37,7 +37,18 @@ jQuery(document).ready(function($) {
 
 
     create_BG_Video();
-    
+
+    var isAndroid = navigator.userAgent.indexOf('Android') >= 0;
+    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+    if (isAndroid && isChrome) {
+        var videos = document.querySelectorAll('video');
+
+        [].forEach.call(videos, function(video) {
+            video.controls = true;
+        });
+    }
+
    }
 
   /* Countdown 
