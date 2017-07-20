@@ -1,26 +1,43 @@
+function create_BG_Video() {
+  //create the video element and its source
+  var el = document.createElement('video');
+  var source = document.createElement('source');
+  // here is the magic that takes a random key in videoList object
+ 
+    source.src = '/manu/bg.mp4';
+    var type;
+    //as ogg video may be with a '.ogv' extension, we have to watch for it      
+    source.type = "video/mp4";
+    el.appendChild(source);
+
+  el.className = 'bg_video';
+  el.width = window.innerWidth;
+  el.height = window.innerHeight;
+  el.setAttribute('autoplay', 'true');
+  //Set it as the first element in our body
+  document.body.insertBefore(el, document.body.childNodes[0]);
+}
+
 /* ---------------------------------------------------------------*/
 /* ----------------------document.ready---------------------------*/
 /* ---------------------------------------------------------------*/
 jQuery(document).ready(function($) {
     /* Video Youtube 
   ----------------------------------------------------------------------*/
-  if($(".bg-youtube-video").length>0) {
-    var sortv = ["gOdFz8B1sCE"];
-    number_g = Math.floor(Math.random() * 5);
-    $('#wrapper').tubular({ 
-      videoId: 'gOdFz8B1sCE',
-      mute: false,
-      repeat: true,
-      width: $(window).width()
-    });
-  }
+
 
   if (window.matchMedia("(min-width: 769px)").matches) {
+    alert(1);
        $("#wrapper").tubular({
            videoId: 'gOdFz8B1sCE',
            mute: false,
            repeat: true
        }); // where idOfYourVideo is the YouTube ID.
+   } else {
+
+
+    create_BG_Video();
+    
    }
 
   /* Countdown 
