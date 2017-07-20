@@ -5,10 +5,10 @@ jQuery(document).ready(function($) {
     /* Video Youtube 
   ----------------------------------------------------------------------*/
   if($(".bg-youtube-video").length>0) {
-    var sortv = ["0Qzcw64Bwu0","Nep1qytq9JM","qREKP9oijWI","QRK-txG_R-8","HTc_2XmKK-M"];
+    var sortv = ["gOdFz8B1sCE"];
     number_g = Math.floor(Math.random() * 5);
     $('#wrapper').tubular({ 
-      videoId: sortv[number_g],
+      videoId: 'gOdFz8B1sCE',
       mute: false,
       repeat: true,
       width: $(window).width()
@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
   ----------------------------------------------------------------------*/
   if($(".my-defaultCountdown").length>0) {
     $(function () {
-      var austDay = new Date(2017, 03, 19, 22, 00, 0);
+      var austDay = new Date(2017, 06, 21, 22, 00, 0);
       $('.my-defaultCountdown').countdown({until: austDay, format: 'DHMS', onTick: watchGti});
     });
 
@@ -83,19 +83,19 @@ $('.floor .image-wrapper').each(function(i, elem) {
 });
 
 
-function press(key){
-  var comando = $('#tacontecendo').val()+key.key.toLowerCase()
-  $('#tacontecendo').val(comando);
-  var input = $('#tacontecendo').val();
-  if(input.length==4 && input=='ecej'){
-    $('#tacontecendo').val("");
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', '/manu/acontecendo.mp3');
-    audioElement.pause();
-    audioElement.currentTime = 1;
-    audioElement.play();
-  } else if(input.length>4) {
-    $('#tacontecendo').val("");
-  }
+// function press(key){
+//   var comando = $('#tacontecendo').val()+key.key.toLowerCase()
+//   $('#tacontecendo').val(comando);
+//   var input = $('#tacontecendo').val();
+//   if(input.length==4 && input=='ecej'){
+//     $('#tacontecendo').val("");
+//     var audioElement = document.createElement('audio');
+//     audioElement.setAttribute('src', '/manu/acontecendo.mp3');
+//     audioElement.pause();
+//     audioElement.currentTime = 1;
+//     audioElement.play();
+//   } else if(input.length>4) {
+//     $('#tacontecendo').val("");
+//   }
 
-}
+// }

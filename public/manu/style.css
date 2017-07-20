@@ -3212,6 +3212,7 @@ body {
   /* Block data info
   --------------------------------------------------------------------*/
 }
+
 /* line 951, ../sass/style.scss */
 #about #personnel {
   padding-top: 64px;
@@ -3558,7 +3559,12 @@ body {
 #first-page.under-contruction .coming-soon {
   letter-spacing: 0.06em;
   line-height: 1.38em;
+}
+.info{
+  font-size: 12px !important;
   margin-bottom: 23px;
+  text-align: center;
+  margin-top: -10px;
 }
 /* line 1280, ../sass/style.scss */
 #first-page.under-contruction .site-undeconstruction {
