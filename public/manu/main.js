@@ -14,11 +14,18 @@ function create_BG_Video() {
   el.className = 'bg_video';
   el.width = window.innerWidth;
   el.height = window.innerHeight;
-  el.setAttribute('autoplay', 'true');
+  el.setAttribute('autoplay', 'false');
   //Set it as the first element in our body
   document.body.insertBefore(el, document.body.childNodes[0]);
 }
 
+function videoplaymobile(){
+    var videos = document.querySelectorAll('video');
+
+    [].forEach.call(videos, function(video) {
+        video.play(); 
+    });
+}
 /* ---------------------------------------------------------------*/
 /* ----------------------document.ready---------------------------*/
 /* ---------------------------------------------------------------*/
@@ -41,7 +48,7 @@ jQuery(document).ready(function($) {
     var isAndroid = navigator.userAgent.indexOf('Android') >= 0;
     var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
-    if (isAndroid && isChrome) {
+    if (isChrome) {
         var videos = document.querySelectorAll('video');
 
         [].forEach.call(videos, function(video) {
