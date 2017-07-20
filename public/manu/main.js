@@ -15,6 +15,14 @@ jQuery(document).ready(function($) {
     });
   }
 
+  if (window.matchMedia("(min-width: 769px)").matches) {
+       $("#wrapper").tubular({
+           videoId: 'gOdFz8B1sCE',
+           mute: false,
+           repeat: true
+       }); // where idOfYourVideo is the YouTube ID.
+   }
+
   /* Countdown 
   ----------------------------------------------------------------------*/
   if($(".my-defaultCountdown").length>0) {
