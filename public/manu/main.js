@@ -4,17 +4,18 @@ function create_BG_Video() {
   var source = document.createElement('source');
   // here is the magic that takes a random key in videoList object
  
-    source.src = '/manu/bg.mp4';
-    var type;
-    //as ogg video may be with a '.ogv' extension, we have to watch for it      
-    source.type = "video/mp4";
-    // video.controls = true;
-    el.appendChild(source);
+  source.src = '/manu/bg1.mp4';
+  var type;
+  //as ogg video may be with a '.ogv' extension, we have to watch for it      
+  source.type = "video/mp4";
+  // video.controls = true;
+  el.appendChild(source);
 
   el.className = 'bg_video';
   el.width = window.innerWidth;
   el.height = window.innerHeight;
   el.setAttribute('autoplay', 'false');
+  el.play(); 
   //Set it as the first element in our body
   document.body.insertBefore(el, document.body.childNodes[0]);
 }
@@ -32,8 +33,6 @@ function videoplaymobile(){
 jQuery(document).ready(function($) {
     /* Video Youtube 
   ----------------------------------------------------------------------*/
-
-
   if (window.matchMedia("(min-width: 769px)").matches) {
        $("#wrapper").tubular({
            videoId: 'gOdFz8B1sCE',
@@ -41,22 +40,19 @@ jQuery(document).ready(function($) {
            repeat: true
        }); // where idOfYourVideo is the YouTube ID.
    } else {
-
-
     create_BG_Video();
 
     var isAndroid = navigator.userAgent.indexOf('Android') >= 0;
     var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
-    if (isChrome) {
-        var videos = document.querySelectorAll('video');
+    if (isChrome && isAndroid) {
+      var videos = document.querySelectorAll('video');
 
-        [].forEach.call(videos, function(video) {
-            video.controls = true;
-        });
+      [].forEach.call(videos, function(video) {
+          video.controls = true;
+      });
     }
-
-   }
+  }
 
   /* Countdown 
   ----------------------------------------------------------------------*/
