@@ -115,6 +115,8 @@ Rails.application.routes.draw do
       # routes for payment
       get "payment" => "checkout#new"
 
+      put 'active_again' => 'user_dashboard#active_account', as: :active_again
+
       post 'payment_billet' => 'checkout#billet', as: :payment_billet
       put 'payment_billet_again' => 'checkout#try_again', as: :payment_billet_again
 

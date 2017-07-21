@@ -84,7 +84,6 @@ class NotificationsController < ApplicationController
         when :PAYMENT_DELETED
           p 'PAGAMENTO DELETADO'
         end
-
       else
         PaymentNotificationsMailer.asaas_error(params['payment']).deliver_now if params['event']=="PAYMENT_RECEIVED"
       end

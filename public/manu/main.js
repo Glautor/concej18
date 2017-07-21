@@ -33,32 +33,38 @@ function videoplaymobile(){
 jQuery(document).ready(function($) {
     /* Video Youtube 
   ----------------------------------------------------------------------*/
-  if (window.matchMedia("(min-width: 769px)").matches) {
-       $("#wrapper").tubular({
+  // if (window.matchMedia("(min-width: 769px)").matches) {
+  //      $("#wrapper").tubular({
+  //          videoId: 'gOdFz8B1sCE',
+  //          mute: false,
+  //          repeat: true
+  //      }); // where idOfYourVideo is the YouTube ID.
+  //  } else {
+  //   create_BG_Video();
+
+  //   var isAndroid = navigator.userAgent.indexOf('Android') >= 0;
+  //   var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+  //   if (isChrome && isAndroid) {
+  //     var videos = document.querySelectorAll('video');
+
+  //     [].forEach.call(videos, function(video) {
+  //         video.controls = true;
+  //     });
+  //   }
+  // }
+
+  $("#wrapper").tubular({
            videoId: 'gOdFz8B1sCE',
            mute: false,
            repeat: true
        }); // where idOfYourVideo is the YouTube ID.
-   } else {
-    create_BG_Video();
-
-    var isAndroid = navigator.userAgent.indexOf('Android') >= 0;
-    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-
-    if (isChrome && isAndroid) {
-      var videos = document.querySelectorAll('video');
-
-      [].forEach.call(videos, function(video) {
-          video.controls = true;
-      });
-    }
-  }
 
   /* Countdown 
   ----------------------------------------------------------------------*/
   if($(".my-defaultCountdown").length>0) {
     $(function () {
-      var austDay = new Date(2017, 06, 21, 22, 00, 0);
+      var austDay = new Date(2017, 06, 22, 22, 00, 0);
       $('.my-defaultCountdown').countdown({until: austDay, format: 'DHMS', onTick: watchGti});
     });
 

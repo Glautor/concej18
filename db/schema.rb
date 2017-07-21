@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628180401) do
+ActiveRecord::Schema.define(version: 20170721213430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -103,6 +104,8 @@ ActiveRecord::Schema.define(version: 20170628180401) do
     t.string   "status_pagseguro"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_payments_on_deleted_at", using: :btree
     t.index ["user_id"], name: "index_payments_on_user_id", using: :btree
   end
 
