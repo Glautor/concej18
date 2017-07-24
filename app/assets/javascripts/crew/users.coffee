@@ -46,17 +46,17 @@ $ ->
     buttons: [
       {
         extend: 'csv'
-        title: 'ENCEJ 2017 - CSV - ' + moment().format('DD/MM/YYYY HH:mm:ss') + ' - ' + $('.box-title').html()
+        title: 'EGEJ 2017 - CSV - ' + moment().format('DD/MM/YYYY HH:mm:ss') + ' - ' + $('.box-title').html()
         exportOptions: columns: 'thead th:not(.noExport)'
       }
       {
         extend: 'excel'
-        title: 'ENCEJ 2017 - EXCEL - ' + moment().format('DD/MM/YYYY HH:mm:ss') + ' - ' + $('.box-title').html()
+        title: 'EGEJ 2017 - EXCEL - ' + moment().format('DD/MM/YYYY HH:mm:ss') + ' - ' + $('.box-title').html()
         exportOptions: columns: 'thead th:not(.noExport)'
       }
       {
         extend: 'pdf'
-        title: 'ENCEJ 2017 - PDF - ' + moment().format('DD/MM/YYYY HH:mm:ss') + ' - ' + $('.box-title').html()
+        title: 'EGEJ 2017 - PDF - ' + moment().format('DD/MM/YYYY HH:mm:ss') + ' - ' + $('.box-title').html()
         exportOptions: columns: 'thead th:not(.noExport)'
       }
     ]
