@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :confirmable
   devise :omniauthable, :omniauth_providers => [:facebook]
+  attr_writer :login_face
 
   acts_as_paranoid
 
@@ -27,15 +28,23 @@ class User < ApplicationRecord
   scope :eligible, -> { where(active: true, completed: true, lot_id: nil).order(:created_at) }
   scope :allocated, -> { order(:created_at).select { |user| user.lot_id.is_a? Integer } }
   scope :disqualified, -> { where(active: false).order(:created_at) }
-  scope :pays, -> { joins(:payment).where("payments.portion_paid!=0") }
+  scope :pays, -> { includes(:payment).where.not(payments: {portion_paid: 0}) }
   scope :no_pays, -> { joins(:payment).where("payments.portion_paid=0") }
   scope :online, lambda{ where("updated_at > ?", 10.minutes.ago) }
   scope :no_finalized, -> { where(completed: nil) }
-  scope :no_selected_payment, -> { select { |user| user.lot_id.is_a? Integer }.select{|user| user.payment.nil? } }
+  #scope :no_selected_payment, -> { select { |user| user.lot_id.is_a? Integer }.select{|user| user.payment.nil? } }
+  scope :no_selected_payment, -> { includes(:payment).where.not(users: {lot_id: nil}).where(payments: {id: nil})}
+
   scope :no_selected_payment_e, -> { select{|user| user.payment.nil? } }
   scope :pays_total, -> { joins(:payment).where("payments.portion_paid=payments.portions") }
   scope :qnt_pays_partial, -> { joins(:payment).where("payments.portion_paid>0").where("payments.portion_paid!=payments.portions") }
 
+
+  # PARA O RELATORIO - EXCEL
+  # Verificar se o cadastro possui associação com o facebook
+  def login_face
+    self.uid ? 'Sim' : 'Não'
+  end
 
   # Returns the user's first name
   def first_name
@@ -85,6 +94,9 @@ class User < ApplicationRecord
     self.is_fed? ? self.lot.value_federated : self.lot.value_not_federated
   end
 
+  def paid_lot_nohost_value
+    self.is_fed? ? self.lot.value_federated_nohost : self.lot.value_not_federated_nohost
+  end
 
   def self.my_position(user)
     User.eligible.index(user) + 1
@@ -171,4 +183,7 @@ class User < ApplicationRecord
     end
     false
   end
+
+
+
 end
