@@ -12,6 +12,17 @@ namespace :email_payment do
     p "#{counter} EMAILS ENVIADOs PARA LEMBRAR O PAGAMENTO"
   end
 
+  task lembrar_lote_promo: :environment do
+    users = User.qnt_pays_partial.where(lot_id: 1)
+    counter = 0;
+    users.each do |user|
+      UsersLotMailer.remember_payment(user).deliver_now
+      p "Email enviado #{user.email}"
+      counter += 1
+    end
+    p "#{counter} EMAILS ENVIADOs PARA LEMBRAR O PAGAMENTO"
+  end
+
   #SE
   #rake -T | grep email_payment
   #rake email_payment:lembrar

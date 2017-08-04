@@ -34,7 +34,6 @@ class User < ApplicationRecord
   scope :no_finalized, -> { where(completed: nil) }
   #scope :no_selected_payment, -> { select { |user| user.lot_id.is_a? Integer }.select{|user| user.payment.nil? } }
   scope :no_selected_payment, -> { includes(:payment).where.not(users: {lot_id: nil}).where(payments: {id: nil})}
-
   scope :no_selected_payment_e, -> { select{|user| user.payment.nil? } }
   scope :pays_total, -> { joins(:payment).where("payments.portion_paid=payments.portions") }
   scope :qnt_pays_partial, -> { joins(:payment).where("payments.portion_paid>0").where("payments.portion_paid!=payments.portions") }
