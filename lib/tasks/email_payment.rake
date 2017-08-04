@@ -2,7 +2,7 @@ namespace :email_payment do
   desc "LEMBRAR O PAGAMENTO"
 
   task lembrar: :environment do
-    users = User.select { |user| (user.payment.nil? || !user.payment.partially_paid?) && !user.lot_id.nil? }
+    users = User.select { |user| (user.payment.nil? || !user.payment.partially_paid?) && user.lot_id == 2 }
     counter = 0;
     users.each do |user|
       UsersLotMailer.remember_payment(user).deliver_now
@@ -12,6 +12,7 @@ namespace :email_payment do
     p "#{counter} EMAILS ENVIADOs PARA LEMBRAR O PAGAMENTO"
   end
 
+  #rake email_payment:lembrar_lote_promo
   task lembrar_lote_promo: :environment do
     users = User.qnt_pays_partial.where(lot_id: 1)
     counter = 0;
