@@ -34,7 +34,7 @@
                <ul class="dropdown-menu" role="menu" style="margin-left: 15px;">
                   <% Lot.all.each do |lot| %>
                   <% unless @user_lot == lot %>
-                  <li><%= link_to lot.name, crew_move_user_to_lot_path(@user, lot.number), method: :patch %></li>
+                  <li><%= link_to lot.name, crew_move_user_to_lot_path(@user, lot.id), method: :patch %></li>
                   <% end %>
                   <% end %>
                   <li class="divider"></li>

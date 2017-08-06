@@ -69,43 +69,78 @@ class Payment < ApplicationRecord
     self.user_asaas_id.nil? ? create_user_asaas : self.user_asaas_id
     # 2° GERAR FATURAS
     create_billets #no asaas
-    generate_links_billets #no sistema
+    #generate_links_billets #no sistema
+    true
   end
 
   #no asaas
   #em caso de n gerar os boletos :  @user.payment.create_billets e  @user.payment.generate_links_billets
+  # def create_billets
+  #   return false if self.user_asaas_id.nil?
+  #   return false if self.asaas_payments.any?
+  #   response = Asaas::Payments.Create(
+  #     "customer"=> self.user_asaas_id,
+  #     "value"=> self.user.paid_lot_value + 2.00,
+  #     "billingType"=> "BOLETO",
+  #     "dueDate"=> Asaas::Utils.data_vencimento,
+  #     "installmentCount"=>Asaas::Utils.check_portions(self.portions),
+  #     "installmentValue"=>self.user.paid_lot_value/Asaas::Utils.check_portions(self.portions) + 2.00
+  #   )
+  #   update(price: self.user.paid_lot_value) unless self.user.paid_lot_value.nil?
+  # end
+
+  # def generate_links_billets
+  #   return false if self.user_asaas_id.nil?
+  #   return false if self.asaas_payments.any?
+  #   row_list_billet = Asaas::Payments.Show("customer"=>self.user_asaas_id)
+
+  #   billet_url = row_list_billet['data'].reverse!
+  #   billet_url.map do |payment_billet|
+  #     asaas_db = AsaasPayment.new do |payment|
+  #       payment.payment_asaas_id = payment_billet['id']
+  #       payment.installment = payment_billet['installment']
+  #       payment.custumer_id = payment_billet['customer']
+  #       payment.boleto_url = payment_billet['bankSlipUrl']
+  #       payment.fatura_url = payment_billet['invoiceUrl']
+  #       payment.description = payment_billet['description']
+  #     end
+  #     asaas_db.save
+  #   end
+
+  # end
+
+
   def create_billets
     return false if self.user_asaas_id.nil?
     return false if self.asaas_payments.any?
-    response = Asaas::Payments.Create(
-      "customer"=> self.user_asaas_id,
-      "value"=> self.user.paid_lot_value + 2.00,
-      "billingType"=> "BOLETO",
-      "dueDate"=> Asaas::Utils.data_vencimento,
-      "installmentCount"=>Asaas::Utils.check_portions(self.portions),
-      "installmentValue"=>self.user.paid_lot_value/Asaas::Utils.check_portions(self.portions) + 2.00
-    )
+    config = YAML.load_file("#{Rails.root.to_s}/config/asaas.yml")
+    vencimentos = config['vencimentos']
+    qnt_parcelas = Asaas::Utils.check_portions(self.portions)
+
+    qnt_parcelas.times do |i|
+      response = Asaas::Payments.Create(
+        "customer"=> self.user_asaas_id,
+        "value"=> (self.user.paid_lot_value/qnt_parcelas) + 2.00,
+        "billingType"=> "BOLETO",
+        "dueDate"=>  Date.parse(vencimentos["mes#{i+1}"]).strftime("%Y-%m-%d"),
+        "description" => "Parcela #{i+1} de #{qnt_parcelas}."
+      )
+      generate_links_billets(response)
+    end
     update(price: self.user.paid_lot_value) unless self.user.paid_lot_value.nil?
   end
 
-  def generate_links_billets
-    return false if self.user_asaas_id.nil?
-    return false if self.asaas_payments.any?
-    row_list_billet = Asaas::Payments.Show("customer"=>self.user_asaas_id)
 
-    billet_url = row_list_billet['data'].reverse!
-    billet_url.map do |payment_billet|
-      asaas_db = AsaasPayment.new do |payment|
-        payment.payment_asaas_id = payment_billet['id']
-        payment.installment = payment_billet['installment']
-        payment.custumer_id = payment_billet['customer']
-        payment.boleto_url = payment_billet['bankSlipUrl']
-        payment.fatura_url = payment_billet['invoiceUrl']
-        payment.description = payment_billet['description']
-      end
-      asaas_db.save
+  def generate_links_billets(response)
+    asaas_db = AsaasPayment.new do |payment|
+      payment.payment_asaas_id = response['id']
+      payment.installment = response['installment']
+      payment.custumer_id = response['customer']
+      payment.boleto_url = response['bankSlipUrl']
+      payment.fatura_url = response['invoiceUrl']
+      payment.description = response['description']
     end
-
+    asaas_db.save
   end
 
   private

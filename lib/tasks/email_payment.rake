@@ -12,7 +12,7 @@ namespace :email_payment do
     p "#{counter} EMAILS ENVIADOs PARA LEMBRAR O PAGAMENTO"
   end
 
-  #rake email_payment:lembrar_lote_promo
+  #rake email_payment:lembrar
   task lembrar_lote_promo: :environment do
     users = User.qnt_pays_partial.where(lot_id: 1)
     counter = 0;
