@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
   ----------------------------------------------------------------------*/
   if($(".my-defaultCountdown").length>0) {
     $(function () {
-      var austDay = new Date(2017, 07, 09, 22, 00, 0);
+      var austDay = new Date(2017, 07, 10, 22, 00, 0);
       $('.my-defaultCountdown').countdown({until: austDay, format: 'DHMS', onTick: watchGti});
     });
 

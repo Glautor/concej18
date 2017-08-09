@@ -96,7 +96,7 @@ class ApplicationController < ActionController::Base
 
   def maintenance_mode_enabled?
     #ENV['MAINTENANCE_MODE']
-    dia20 = DateTime.new(2017, 8, 9, 21, 59, 50 , '-3')
+    dia20 = DateTime.new(2017, 8, 10, 21, 59, 50 , '-3')
     now = DateTime.now
     dia20>=now ? true : false
   end
