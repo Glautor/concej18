@@ -4,6 +4,7 @@ module Asaas
   require_relative "api_request"
   require_relative "show_users"
   require_relative "payments"
+  require_relative "notifications"
 
   class RequestWithErrors < StandardError
     attr_accessor :errors

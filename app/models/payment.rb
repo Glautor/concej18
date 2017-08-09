@@ -154,6 +154,14 @@ class Payment < ApplicationRecord
       "company"=> self.user.junior_enterprise
     )
     update(user_asaas_id: custumer_id) unless custumer_id.nil?
+    begin
+      not_overdue = Asaas::Notifications.ShowOverdue(custumer_id)
+      not_overdue.each do |v|
+        Asaas::Notifications.Disabled(v["id"])
+      end
+    rescue Exception => e
+
+    end
     return custumer_id
   end
 end
