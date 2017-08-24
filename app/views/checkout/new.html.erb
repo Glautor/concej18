@@ -35,7 +35,7 @@
                               <div class="modal-body" style="background-color: #fff !important; color: #000 !important">
                                  <div class="form-group">
                                     <label>Parcelamento</label>
-                                    <%= select_tag(:installmentCount, options_for_select([ ["À vista", 1], ["Duas vezes", 2]]), {:class => 'form-control', onchange: 'change_payment_parts(this,'"#{@user.paid_lot_value + 2.00}"')', :prompt => "SELECIONE O PARCELAMENTO",  "required": "",  "oninvalid":"setCustomValidity('Selecione como deseja Pagar')", "oninput":"setCustomValidity('')", "id": "parcelamento_sel"
+                                    <%= select_tag(:installmentCount, options_for_select([ ["À vista", 1]]), {:class => 'form-control', onchange: 'change_payment_parts(this,'"#{@user.paid_lot_value + 2.00}"')', :prompt => "SELECIONE O PARCELAMENTO",  "required": "",  "oninvalid":"setCustomValidity('Selecione como deseja Pagar')", "oninput":"setCustomValidity('')", "id": "parcelamento_sel"
                                        })  %>
                                  </div>
                                  <span id="recebe_info_boleto">
