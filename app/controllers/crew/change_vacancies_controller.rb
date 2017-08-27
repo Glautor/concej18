@@ -47,7 +47,6 @@ class Crew::ChangeVacanciesController < Crew::BaseController
     @vendedor.save
     @comprador.save
     @vendedor.payment.update_attribute(:user_id, @comprador.id)
-    @vendedor.payment.asaas_payments.update_all(user_id: @comprador.id) # VERIFICAR?
  
     render :status => 200, :json => {type: 'exist'}
   end
