@@ -2,7 +2,7 @@ namespace :email_payment do
   desc "LEMBRAR O PAGAMENTO"
 
   task lembrar: :environment do
-    users = User.select { |user| (user.payment.nil? || !user.payment.partially_paid?) && user.lot_id == 2 }
+    users = User.select { |user| (user.payment.nil? || !user.payment.partially_paid?) && !user.lot_id.nil? }
     counter = 0;
     users.each do |user|
       UsersLotMailer.remember_payment(user).deliver_now
