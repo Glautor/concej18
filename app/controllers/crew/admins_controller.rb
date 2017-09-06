@@ -24,9 +24,9 @@ class Crew::AdminsController < Crew::BaseController
         @tPagseguro += user.payment.price
       elsif user.payment.method == 'Boleto' && !user.payment.asaas_payments.nil? && !user.payment.price.nil?
         parcelas = user.payment.portions
-        total_pago = user.payment.asaas_payments.where(status: 'RECEIVED').count
-        @total += (user.payment.price/parcelas) * total_pago
-        @tBoleto += (user.payment.price/parcelas) * total_pago
+        #total_pago = user.payment.asaas_payments.where(status: 'RECEIVED').count
+        @total += (user.payment.price/parcelas) * user.payment.portion_paid
+        @tBoleto += (user.payment.price/parcelas) * user.payment.portion_paid
       end
     end
   end
