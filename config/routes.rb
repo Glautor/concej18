@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :crew do
+    get 'boletos/index'
+  end
+
   mount Ckeditor::Engine => '/ckeditor'
   namespace :crew do
 

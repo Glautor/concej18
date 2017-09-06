@@ -1,0 +1,42 @@
+
+<!-- Main content -->
+<section class="content">
+	<!-- <section class="box"> -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">boletos</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+
+					<table class="table table-striped table-bordered dt-responsive nowrap display"  cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Boletos</th>
+								<th>Parcelas</th>
+								<th>*</th>
+							</tr>
+						</thead>
+						<tbody>
+						<% @boletos.each do |b|%>
+							<tr>
+								<td><%=b.user.id%>/ <%=b.user.name%></td>
+								<td><%=payment_view(b)%></td>
+								<td><%= b.portion_paid %>/<%= b.portions %></td>
+								<td><%= check_portions_erro(b) %></td>
+							</tr>
+						<% end %>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</section>

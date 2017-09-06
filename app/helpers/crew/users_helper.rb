@@ -79,4 +79,15 @@ module Crew::UsersHelper
       button_tag "Login", type: 'button', class: "btn btn-block btn-warning btn-sm"
     end
   end
+
+  def check_portions_erro(payment)
+    total_pago = payment.asaas_payments.where(status: 'RECEIVED').count
+    if total_pago != payment.portion_paid
+      p 'DIFERENTE'
+      #payment.update(portion_paid: total_pago)
+    else
+      nil
+    end
+  end
 end
+

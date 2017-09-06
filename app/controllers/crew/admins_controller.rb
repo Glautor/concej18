@@ -8,6 +8,7 @@ class Crew::AdminsController < Crew::BaseController
     @disqualified_users = User.disqualified
     @allocated_users = User.allocated
     @pays = User.pays
+    @pays_to_infos =  User.includes(payment: [:asaas_payments]).where.not(payments: {portion_paid: 0})
     @onlines = User.online
     @lots = Lot.all.order("number")
     @select_boleto = User.joins(:payment).where("payments.method = 'Boleto'")
@@ -17,7 +18,7 @@ class Crew::AdminsController < Crew::BaseController
     @tPagseguro = 0
     @tBoleto = 0
 
-    @pays.each do |user|
+    @pays_to_infos.each do |user|
       if user.payment.method == 'PagSeguro' && user.payment.paid? && !user.payment.price.nil?
         @total += user.payment.price
         @tPagseguro += user.payment.price

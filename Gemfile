@@ -53,8 +53,6 @@ gem 'prawn-rails'
 gem 'faker'
 gem 'cpf_faker'
 
-gem 'newrelic_rpm'
-
 gem 'jquery-datatables-rails'
 gem 'ajax-datatables-rails'
 
@@ -77,6 +75,7 @@ group :development do
   # Use mysql as the database for Active Record
   # gem 'mysql2', '>= 0.3.18', '< 0.5'
   gem 'pg'
+  gem 'active_record_query_trace'
 
 end
 

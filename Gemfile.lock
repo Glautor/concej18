@@ -27,6 +27,7 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
     active_enum (1.0.0.rc1)
       activesupport (>= 3.0)
+    active_record_query_trace (1.5.4)
     activejob (5.0.4)
       activesupport (= 5.0.4)
       globalid (>= 0.3.6)
@@ -312,7 +313,6 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    newrelic_rpm (4.2.0.334)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -470,6 +470,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_enum (~> 1.0.0.pre)
+  active_record_query_trace
   ajax-datatables-rails
   awesome_print
   brazilian-rails
@@ -491,7 +492,6 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.0.5)
   mini_magick
-  newrelic_rpm
   omniauth
   omniauth-facebook
   pagseguro-oficial (~> 2.5.0)
