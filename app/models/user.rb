@@ -46,9 +46,23 @@ class User < ApplicationRecord
   end
 
   # Returns the user's first name
+  def junior_enterprise_first
+    junior_enterprise.split(' ').first
+  end
+
+   def junior_enterprise_last
+    junior_enterprise.split(' ').last
+  end
+
+  def junior_enterprise_two_names
+    junior_enterprise.split(' ').length == 1 ? junior_enterprise_first : "#{junior_enterprise_first} #{junior_enterprise_last}"
+  end
+
+   # Returns the user's first name
   def first_name
     name.split(' ').first
   end
+
 
   # Returns the user's last name
   def last_name
@@ -182,6 +196,7 @@ class User < ApplicationRecord
     end
     false
   end
+
 
 
 

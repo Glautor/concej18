@@ -149,6 +149,10 @@ Rails.application.routes.draw do
       #certificado
       get 'certificate.pdf' => 'certificates#show'
 
+      #cracha
+      get 'cracha.pdf' => 'certificates#cracha'
+
+
     end
     unauthenticated :users do
       root to: "users/sessions#new", as: :unauthenticated_user_root

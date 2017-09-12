@@ -1,6 +1,6 @@
 class CertificatesController < BaseController
-  before_action :check_forms
-  before_action :close_certi
+  #before_action :check_forms
+  #before_action :close_certi
 
   def close_certi
     flash[:notice] = "Por enquanto, não estamos processando novos certificados."
@@ -29,4 +29,12 @@ class CertificatesController < BaseController
       redirect_to authenticated_user_root_path
     end
   end
+
+
+
+  def cracha
+    @user = User.includes(:events).pays.order('events.id ASC').order('junior_enterprise')
+  end
+
+
 end
