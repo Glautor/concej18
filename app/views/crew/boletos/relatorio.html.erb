@@ -1,0 +1,108 @@
+<!-- Main content -->
+<section class="content">
+   <!-- <section class="box"> -->
+   <div class="row">
+      <div class="col-sm-6">
+         <div class="box">
+            <div class="box-header">
+               <h3 class="box-title">Pagamentos Confirmados (Boletos)</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+               <ul class="timeline">
+                  <!-- timeline time label -->
+                  <% i= 0%>
+                  <% @boletos.each do |k,v|%>
+                  <li class="time-label">
+                     <span class="bg-green">
+                     <%if Date.today == k %><B>[HOJE]</B><%end%> <%= l k, format: :week_format %>
+                     </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <li>
+                     <!-- timeline icon -->
+                     <div class="timeline-item">
+                        <div >
+                           <div class="box-group" id="accordion">
+                              <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                              <div class="panel box box-success">
+                                 <div class="box-header with-border">
+                                    <h4 class="box-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" href="#list<%=i%>">
+                                       <%= pluralize(v.count, 'Parcela Paga', 'Parcelas Pagas') %>
+                                       </a>
+                                    </h4>
+                                 </div>
+                                 <div id="list<%=i%>" class="panel-collapse collapse">
+                                    <div class="box-body">
+                                       <%v.each do |b|%>
+                                       <%=b.payment.user.name %> -  <%=b.description %><br>
+                                       <%end %>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <!-- END timeline item -->
+                  <% i = i + 1%>
+                  <% end %>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="box">
+            <div class="box-header">
+               <h3 class="box-title">Pagamentos Confirmados (PagSeguro)</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+               <ul class="timeline">
+                  <!-- timeline time label -->
+                  <% i= 0%>
+                  <% @pagseguro.each do |k,v|%>
+                  <li class="time-label">
+                     <span class="bg-green">
+                     <%if Date.today == k %><B>[HOJE]</B><%end%> <%= l k, format: :week_format %>
+                     </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <li>
+                     <!-- timeline icon -->
+                     <div class="timeline-item">
+                        <div >
+                           <div class="box-group" id="accordion">
+                              <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                              <div class="panel box box-success">
+                                 <div class="box-header with-border">
+                                    <h4 class="box-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" href="#lista<%=i%>">
+                                       <%= pluralize(v.count, 'Pagamento', 'Pagamentos') %>
+                                       </a>
+                                    </h4>
+                                 </div>
+                                 <div id="lista<%=i%>" class="panel-collapse collapse">
+                                    <div class="box-body">
+                                       <%v.each do |b|%>
+                                       <%=b.user.name %></br>
+                                       <%end %>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <!-- END timeline item -->
+                  <% i = i + 1%>
+                  <% end %>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

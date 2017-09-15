@@ -384,15 +384,29 @@
 
 
 
-      <div class="col-md-9 pull-right">
+      <div class="col-sm-9 full_ranking" style="float: right;">
          <div class="box box-primary" >
              <div class="box-header">
-               <h3 class="box-title">TOP 5 - EJS CADASTRADAS</h3>
+               <h3 class="box-title">TOP 5 - EJS <%= !@top5_value ? "CADASTRADAS": "PAGANTES"%> </h3>
+               <span class="pull-right">
+
+                  <div class="switch">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" class="onoffswitch-checkbox" id="top5switch" <%=@top5_value ? "checked" : ""%> >
+                                    <label class="onoffswitch-label" for="top5switch">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+               </span>
             </div>
 
             <div class="box-body" style="text-align: left;">
 
               <ul class="nav nav-pills nav-stacked ranking-ejsul">
+              <%# cache "rankingejs", expires_in: 5.minutes do %>
                 <%i = 1%>
                 <% @ej.each do |empresas, usuarios| %>
 
@@ -400,13 +414,14 @@
                   <div class="ranking-ejs color-<%=i%>"><%=i%>° lugar</div>
                   <b><%=  usuarios.map{ |h| h.junior_enterprise}.max.upcase %></b> 
                   <div class="pull-right">
-                     <span class="label label-primary" style="margin-right: 4px" data-toggle="tooltip" title="" data-original-title="Total de membros" ><%=  usuarios.count %>  Membros</span> 
-                     <span class="label label-success" style="margin-right: 4px" data-toggle="tooltip" title="" data-original-title="Total de membros pagantes" ><%= count_paymeny_ej(usuarios) %> Pagantes</span> 
+                     <span class="label label-primary" style="margin-right: 4px" data-toggle="tooltip" title="" data-original-title="Total de membros" ><%= count_users_ej_by_switch(usuarios, @top5_value, empresas)  %>   Membros</span> 
+                     <span class="label label-success" style="margin-right: 4px" data-toggle="tooltip" title="" data-original-title="Total de membros pagantes" ><%#= Rails.cache.fetch(:count_paymeny_ej, :expires_in => 5) {count_paymeny_ej(usuarios) } %><%= count_paymeny_eja(usuarios, @top5_value)  %> Pagantes</span> 
                   </div>
                </li>
                <%i = i+1%>
                <% end %>
 
+               <%# end %>
             
            
 
@@ -415,8 +430,7 @@
   
             </div>
          </div>
-      </div>   
-
+      </div> 
 
    <!-- /.col -->
    </div>

@@ -3,6 +3,23 @@ module Crew::UsersHelper
     usuarios.select{ |user| !user.payment.nil? && user.payment.portion_paid > 0}.count
   end
 
+
+  def count_paymeny_eja(usuarios,top5_value, empresas=nil)
+    if top5_value
+      usuarios.count
+    else
+      usuarios.select{ |user| !user.payment.nil? && user.payment.portion_paid > 0}.count
+    end
+  end
+
+  def count_users_ej_by_switch(usuarios, top5_value, empresas=nil)
+    if top5_value
+      @users = User.where("lower(split_part(junior_enterprise, ' ', 1)) = ?", "#{empresas[0]}").count
+    else
+      usuarios.count
+    end
+  end
+
   def count_alocados(usuarios)
     usuarios.select { |user| user.lot_id.is_a? Integer }.count
   end
@@ -90,4 +107,3 @@ module Crew::UsersHelper
     end
   end
 end
-

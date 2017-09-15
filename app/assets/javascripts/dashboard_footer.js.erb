@@ -652,6 +652,15 @@ $(".hover_event").hover(function(){
     }, 200)
 });
 
+
+
+$('#top5switch').on('click' , function(){
+    var atual = $(this).is(":checked");
+    window.location.href = "?top5=switch"+atual;
+});
+
+
+
 });
 
 

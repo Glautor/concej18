@@ -25,10 +25,28 @@ class UserDashboardController < BaseController
       @federado = @user.federation_check.mb_chars.upcase
     end
 
+    if params[:top5].nil? && session[:top5].nil?
+      params_or_session = "switchfalse"
+    elsif params[:top5].nil? && !session[:top5].nil?
+      params_or_session = (session[:top5] ? "switchtrue" : "switchfalse")
+    else
+      params_or_session = params[:top5]
+    end
 
-    #top 5
-    @ej = User.all.where.not(junior_enterprise:nil).order(:junior_enterprise).group_by{|d| d.junior_enterprise.split(' ').first.downcase}.sort_by { |k, v| v.count }.reverse.take(5)
+     #switch
+    if params_or_session == "switchtrue" ##PAGANTES
+      @top5_value = true
+      session[:top5] = true
+      @ej = User.includes(:payment).where.not(payments: {id: nil}).where.not(junior_enterprise:nil).order(:junior_enterprise).group_by{|d| [d.junior_enterprise.split(' ').first.downcase, d.payment.portion_paid > 0 ] }.sort_by { |k, v| v.count }.reverse.take(5)
+    elsif params_or_session == "switchfalse" ##CADASTRADOS
+      @top5_value = false
+      session[:top5] = false
+      @ej = User.includes(:payment).all.where.not(junior_enterprise:nil).order(:junior_enterprise).group_by{|d| d.junior_enterprise.split(' ').first.downcase}.sort_by { |k, v| v.count }.reverse.take(5)
+    else
+      @ej = User.includes(:payment).all.where.not(junior_enterprise:nil).order(:junior_enterprise).group_by{|d| d.junior_enterprise.split(' ').first.downcase}.sort_by { |k, v| v.count }.reverse.take(5)
+    end
 
+    @top5_value = session[:top5] unless session[:top5].nil?
   end
 
   def about

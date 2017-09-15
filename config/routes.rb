@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :crew do
-    get 'boletos/index'
-  end
-
   mount Ckeditor::Engine => '/ckeditor'
   namespace :crew do
 
@@ -76,6 +72,10 @@ Rails.application.routes.draw do
         patch 'login_user/:user_id' => 'admins_methods#login', as: :login_user
 
         #hoteis
+
+        #boletos
+        get 'boletos/relatorio'
+        get 'boletos/index'
       end
 
       unauthenticated do

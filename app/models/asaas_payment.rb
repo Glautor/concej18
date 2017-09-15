@@ -13,4 +13,8 @@ class AsaasPayment < ApplicationRecord
       p ex
     end
   end
+
+  def self.days
+    self.includes(payment: [:user]).all.where.not(client_payment_date:nil).group_by{|d| d.client_payment_date.to_date}.sort_by{|s| s}.reverse
+  end
 end

@@ -39,14 +39,17 @@ class Crew::ChangeVacanciesController < Crew::BaseController
     @comprador.payment.destroy unless @comprador.payment.nil?
 
     @comprador.lot_id = @vendedor.lot_id
+    @comprador.paid_on = @vendedor.paid_on
     @comprador.active = true
 
     @vendedor.lot_id = nil
     @vendedor.active = false
+    @vendedor.paid_on = nil
 
     @vendedor.save
     @comprador.save
     @vendedor.payment.update_attribute(:user_id, @comprador.id)
+
  
     render :status => 200, :json => {type: 'exist'}
   end
