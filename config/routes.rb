@@ -76,6 +76,10 @@ Rails.application.routes.draw do
         #boletos
         get 'boletos/relatorio'
         get 'boletos/index'
+
+
+        #cracha
+        get 'cracha.pdf' => 'users#cracha'
       end
 
       unauthenticated do
@@ -149,8 +153,6 @@ Rails.application.routes.draw do
       #certificado
       get 'certificate.pdf' => 'certificates#show'
 
-      #cracha
-      get 'cracha.pdf' => 'certificates#cracha'
 
 
     end

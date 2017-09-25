@@ -32,9 +32,6 @@ class CertificatesController < BaseController
 
 
 
-  def cracha
-    @user = User.includes(:events).pays.order('events.id ASC').order('junior_enterprise')
-  end
-
+  
 
 end

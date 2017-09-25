@@ -95,6 +95,11 @@ class Crew::UsersController < Crew::BaseController
     end
   end
 
+  def cracha
+    @user = User.includes(:events).pays.order('events.id ASC').order('junior_enterprise')
+  end
+
+
   private
   def load_user
     @user = User.find(params[:id])
