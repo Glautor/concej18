@@ -4,11 +4,13 @@ module EventsHelper
   end
 
   def grid_value(count_events)
-    if count_events.count <=6
-      a = 12 / count_events.count 
-      a>2 ? a : 4
+    case count_events.count
+    when 1
+      return 12
+    when 2
+      return  6
     else
-      12
+      4   
     end
   end
 end
