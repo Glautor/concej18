@@ -1,0 +1,8 @@
+
+Event.create(name: "Bill Gates e o emprego mais importante", facilitator: "Bill Gates ", limit: 100, start: "2017-09-26 20:00:00", end: "2017-09-26 22:00:00", description: "DESCRIÇÃO", avatar: open("https://eventi17.s3.amazonaws.com/uploads/event/avatar/1/bill.jpeg"))
+Event.create(name: "The gentle genius of bonobos", facilitator: "GTi Júnior", limit: 70, start: "2017-09-26 20:00:00", end: "2017-09-26 22:00:00", description: "teste\r\nteste\r\nteste2", avatar: open("https://eventi17.s3.amazonaws.com/uploads/event/avatar/2/ad.jpg"))
+Event.create(name: "Empreendedorismo Feminino", facilitator: "Luiza Trajano ", limit: 150, start: "2017-09-26 20:00:00", end: "2017-09-26 22:00:00", description: "av\r\nva", avatar: open("https://eventi17.s3.amazonaws.com/uploads/event/avatar/3/ea_luiza_trajano_640x440.jpg"))
+Event.create(name: "Batalha de Cases - Pessoas", facilitator: "Produtiva Jr. X Poli Júnior Engenharia", limit: 100, start: "2017-09-26 20:00:00", end: "2017-09-26 22:00:00", description: "Produtiva Jr - Mudando a rota para alçar um voo ma...", avatar: open("https://eventi17.s3.amazonaws.com/uploads/event/avatar/4/PESSOAS-01.png"))
+Event.create(name: "Palestra Case 2", facilitator: "GTi Júnior", limit: 60, start: "2017-09-26 20:00:00", end: "2017-09-26 22:00:00", description: "", avatar: open("https://eventi17.s3.amazonaws.com/uploads/event/avatar/5/photo3.jpg"))
+Event.create(name: "Palestra Case 3", facilitator: "GTi Júnior", limit: 70, start: "2017-09-26 20:00:00", end: "2017-09-26 22:00:00", description: "")
+Event.create(name: "Palestra Case 1", facilitator: "GTi Júnior", limit: 50, start: "2017-09-27 16:00:00", end: "2017-09-26 22:00:00", description: "")

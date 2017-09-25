@@ -607,7 +607,7 @@ jQuery(document).ready(function($) {
 
   if($(".event_time").length>0) {
     $(function () {
-      var austDay = new Date(2017, 04, 18, 22, 0, 0);
+      var austDay = new Date(2017, 08, 25, 19, 00, 0);
       $('.event_time').countdown({until: austDay, onTick: watchGti });
     });
     var first = false;
@@ -624,6 +624,10 @@ jQuery(document).ready(function($) {
 
 });
 
+function animationLogo(){
+   $('.animar-patrick-gti').delay( 4000 ).show( 400 );
+   $('.animar-patrick-gti').addClass('logo-proloader-gti2');
+  }
 
 $(document).ready(function() {
 
@@ -659,6 +663,7 @@ $('#top5switch').on('click' , function(){
     window.location.href = "?top5=switch"+atual;
 });
 
+  
 
 
 });
