@@ -4551,7 +4551,8 @@ table.text-center th {
 .bg-aqua-active,
 .modal-info .modal-header,
 .modal-info .modal-footer {
-   background: url('/images/beach_new.jpg') center ; 
+   background: url('/images/egej/event.jpg') center ; 
+   background-size: cover;
    z-index: 2;
 }
 .bg-aqua-active:after {

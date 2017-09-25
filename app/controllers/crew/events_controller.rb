@@ -84,6 +84,6 @@ class Crew::EventsController < Crew::BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def crew_event_params
-    params.require(:event).permit(:name, :start, :end, :limit, :description, :facilitator, :avatar)
+    params.require(:event).permit(:name, :start, :end, :limit, :description, :facilitator, :avatar, :code)
   end
 end

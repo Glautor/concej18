@@ -17,7 +17,7 @@
                <div class="box box-widget widget-user">
                   <div class="widget-user-header bg-aqua-active">
                      <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-events-info" data-dismiss="modal" data-disable-with="Aguarde..."  data-commit="Entendi"  data-confirm="Facilitador: <%= event.facilitator %> </br></br><%= event.description %> " rel="nofollow" style="z-index: 1000;margin-top: -10px"><i class="fa fa-info"></i></button>
+                        <button type="button" class="btn btn-events-info" data-dismiss="modal" data-disable-with="Aguarde..."  data-commit="Entendi"  data-confirm="<b>Código:</b> <%= event.code %><br><b>Facilitador:</b> <%= event.facilitator %> </br></br><%= event.description %> " rel="nofollow" style="z-index: 1000;margin-top: -10px"><i class="fa fa-info"></i></button>
                      </div>
                      <h3 class="widget-user-username" style="margin-top: -10px"><%= event.name %></h3>
                      <h5 class="widget-user-desc"> <%= "#{event.start.strftime('%H:%M')} - #{event.end.strftime('%H:%M')}" %></h5>
@@ -79,7 +79,7 @@
    <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
          <% @days.each_with_index do |day, index| %>
-         <li class="<%= active(index) %>"><a href="#tab_<%=index%>" data-toggle="tab">Dia <%=day[:date].strftime('%d/%m')  %></a></li>
+         <li class="<%= active(index) %>"><a href="#tab_<%=index%>" data-toggle="tab"><%= l day[:date], format: :week_format %></a></li>
          <% end %>
       </ul>
    </div>
