@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<style>
+body {
+ font-family: Verdana, Helvetica, sans-serif;
+}
+canvas {
+ border: 1px solid black;;
+}
+</style>
+</head>
+
+
+<body>
+
+
+<canvas id="layer1" style="z-index: 1; position:absolute; left:0px; top:0px;" width="800" height="500"></canvas>
+<canvas id="layer2" style="z-index: 2; position:absolute; left:0px; top:0px;" width="800" height="500"></canvas>
+<canvas id="layer3" style="z-index: 3; position:absolute; left:0px; top:0px;" width="800" height="500"></canvas>
+
+
+
+<script>
+
+//var canvas = document.getElementById("myCanvas");
+//var context = canvas.getContext("2d");
+var layer1;
+var layer2;
+var layer3;
+var particles;
+var eruption;
+var timer;
+var timerRestart;
+
+function init(){
+    layer1 = document.getElementById("layer1");
+    ctx1 = layer1.getContext("2d");
+
+    layer2 = document.getElementById("layer2");
+    ctx2 = layer2.getContext("2d");
+    
+    canvas=layer3 = document.getElementById("layer3");
+    context=ctx3 = layer3.getContext("2d");
+
+}
+
+function animationHandler(){
+    fillBackgroundColor(canvas, context);
+    drawVolcano();
+    eruption = setTimeout(makeParticles, 10);
+}
+
+
+function drawVolcano(){
+
+    ctx1.beginPath();
+    ctx1.moveTo(0, 400);
+    ctx1.bezierCurveTo(0, 400, 250, 400, 325, 200);
+    ctx1.lineTo(425, 200);
+    ctx1.bezierCurveTo(425, 200, 450, 400, 800, 400);
+    ctx1.lineTo(800, 500);
+    ctx1.lineTo(0, 500);
+    ctx1.closePath();
+
+    ctx1.fillStyle = "#802b00";
+    ctx1.fill();
+
+    ctx1.lineWidth = 5;
+    ctx1.strokeStyle = "#b33c00";
+    ctx1.stroke();
+}
+
+function fillBackgroundColor(canvas, context){
+    ctx1.fillStyle = "#3399ff" ;
+    ctx1.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function makeParticles() {
+    //create an array of particles for our animation
+    particles = [];
+    for(var i = 0; i < 100; i++)
+    {
+        particles.push(new Particle());
+    }
+
+}
+
+function degreesToRadians(degrees) {
+     //converts from degrees to radians and returns
+    return (degrees * Math.PI)/180;
+}
+
+function Particle(){
+     //the constructor for a single particle, with random starting x+y, velocity, color, and radius
+     //this.x = Math.random()*canvas.width;
+     //this.y = Math.random()*canvas.height;
+    this.x = canvas.width/2;
+    this.y = (0,0);
+    this.vx = Math.random()*16-8;
+    this.vy = Math.random()*10;
+    var colors = ["red", "#ff6600", "yellow", "#262626"];
+    this.color = colors[Math.floor(Math.random()*colors.length)];
+    this.radius = 50;
+    }
+
+function moveParticles() {
+     //partially clear the screen to fade previous circles, and draw a new particle at each new coordinate
+    ctx2.globalCompositeOperation = "source-over";
+    ctx2.fillStyle = "rgba(0, 0, 0, 0.3)";
+    ctx2.fillRect(0, 0, canvas.width, canvas.height);
+    ctx2.globalCompositeOperation = "lighter";
+    for(var i = 0; i < particles.length; i++)
+    {
+        var p = particles[i];
+        ctx2.beginPath();
+        ctx2.arc(p.x, p.y, p.radius, 0, degreesToRadians(360), true);
+        ctx2.fillStyle = p.color;
+        ctx2.fill();
+        p.x += p.vx;
+        p.y += p.vy;
+        if(p.x < -50) p.x = canvas.width+50;
+        if(p.y < -50) p.y = canvas.height+50;
+        if(p.x > canvas.width+50) p.x = -50;
+        if(p.y > canvas.height+50) p.y = -50;
+        p.radius -= 1;
+    }
+
+}
+
+
+function clearScreen(color) {
+     //clears the screen and fills with the color of choice
+    ctx2.clearRect(0, 0, canvas.width, canvas.height);
+    ctx2.fillStyle = color;
+    ctx2.fillRect(0, 0, canvas.width, canvas.height);
+
+}
+
+window.onload = function() { 
+init();
+animationHandler();
+timer = setInterval(moveParticles, 60);
+timerRestart = setInterval(makeParticles, 4000);
+}
+
+</script>
+</html>
