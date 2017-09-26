@@ -18,10 +18,12 @@ prawn_document do |pdf|
         pdf.text user.first_name.upcase, :align => :center, size: 15
         pdf.move_down 5
         pdf.transparent(0.5) { pdf.dash(1); pdf.stroke_horizontal_rule }
-        pdf.move_down 13
-        pdf.text user.junior_enterprise_first.upcase, :align => :center, size: 12
         pdf.move_down 5
-        pdf.text all_events_by_user(user), :align => :center, size: 12
+        pdf.text user.job.upcase, :align => :center, size: 13
+        pdf.move_down 5
+        pdf.text user.junior_enterprise.upcase, :align => :center, size: 12
+        pdf.move_down 5
+        pdf.text all_events_by_user(user), :align => :center, size: 11
       end
 
        if (i+1) % 16 == 0
