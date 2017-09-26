@@ -15,12 +15,12 @@ prawn_document do |pdf|
         pdf.transparent(0.5) { pdf.dash(1); pdf.stroke_bounds; pdf.undash }
         pdf.font Rails.root.join("public/fonts/biko/Biko_Bold.ttf")
         pdf.move_down 10
-        pdf.text user.name.upcase, :align => :center, size: 12
+        pdf.text user.two_names.upcase, :align => :center, size: 15
         pdf.move_down 5
         pdf.transparent(0.5) { pdf.dash(1); pdf.stroke_horizontal_rule }
-        pdf.move_down 7
-        pdf.text user.job.upcase, :align => :center, size: 8
         pdf.move_down 5
+        pdf.text user.job.upcase, :align => :center, size: 8
+        pdf.move_down 3
         pdf.text user.junior_enterprise_two_names.upcase, :align => :center, size: 12
         pdf.move_down 5
         pdf.text all_events_by_user(user), :align => :center, size: 12
