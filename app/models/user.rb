@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
    def junior_enterprise_last
-    junior_enterprise.split(' ').last
+    junior_enterprise.split(' ').second
   end
 
   def junior_enterprise_two_names
