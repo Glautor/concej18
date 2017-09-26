@@ -7,9 +7,9 @@ module ApplicationHelper
   #CRACHA
   def all_events_by_user(user)
     if user.events.blank?
-      "[PROG. ÑÃO SELEC.]"
+      "[PROG. NÃO SELEC.]"
     else
-      user.events.map{ |h| "#{h.id}TA" }
+      user.events.map{ |h| "#{h.code}" }
     end
   end
 end
