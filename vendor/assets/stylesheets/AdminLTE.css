@@ -5727,6 +5727,14 @@ opacity: 0.6
   color: #919191;
   text-align: right;
 }
+.onoffswitch-inner1:before {
+  content: "MINHA EJ";
+  padding-left: 20px;
+}
+.onoffswitch-inner1:after {
+  content: "TODOS";
+  padding-right: 29px;
+}
 .onoffswitch-switch {
   display: block;
   width: 18px;

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :manu
   before_action :user_activity
   before_action :prepare_exception_notifier
-  #before_action :room_open?
+  before_action :room_open?
   before_action :event_open?
   #before_action :authenticate
   protected
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def room_open?
-    day_open = DateTime.new(2017, 12, 30, 21, 59, 50 , '-3')
+    day_open = DateTime.new(2017, 9, 27, 22, 0, 0 , '-3')
     now = DateTime.now
     @room_open = (day_open>=now ? false : true)
 

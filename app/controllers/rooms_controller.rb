@@ -9,7 +9,7 @@ class RoomsController < BaseController
 
   def close_insert_exit_room
     if get_admin.nil?
-      flash[:notice] = "Não é mais possivel entrar,trocar ou sair do quarto."
+      flash[:notice] = "Não é mais possivel entrar, trocar ou sair do quarto."
       redirect_to rooms_url(@hotel.id)
     end
   end
