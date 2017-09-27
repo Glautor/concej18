@@ -20,6 +20,11 @@ class UsersLotMailer < ApplicationMailer
     mail to: user.email, subject: "[EGEJ 2017] - Somente HOJE, 19h! Escolha da programação"
   end
 
+  def escolha_q(user)
+    @user = user
+    mail to: user.email, subject: "[EGEJ 2017] - Escolha seu quarto às 22hrs! (HOJE)"
+  end
+
   def certificate(user)
     @user = user
     mail to: user.email, subject: "[EGEJ 2017] - Certificado Liberado"
