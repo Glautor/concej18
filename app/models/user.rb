@@ -38,6 +38,13 @@ class User < ApplicationRecord
   scope :pays_total, -> { joins(:payment).where("payments.portion_paid=payments.portions") }
   scope :qnt_pays_partial, -> { joins(:payment).where("payments.portion_paid>0").where("payments.portion_paid!=payments.portions") }
 
+  validate :check_limit_room_in_model
+
+  def check_limit_room_in_model
+    unless room.nil?
+      errors.add(:room_id, "Cheio") if room.users.count >= room.capacity
+    end
+  end
 
   # PARA O RELATORIO - EXCEL
   # Verificar se o cadastro possui associação com o facebook
@@ -50,7 +57,7 @@ class User < ApplicationRecord
     junior_enterprise.split(' ').first
   end
 
-   def junior_enterprise_last
+  def junior_enterprise_last
     junior_enterprise.split(' ').second
   end
 
@@ -58,7 +65,7 @@ class User < ApplicationRecord
     junior_enterprise.split(' ').length == 1 ? junior_enterprise_first : "#{junior_enterprise_first} #{junior_enterprise_last}"
   end
 
-   # Returns the user's first name
+  # Returns the user's first name
   def first_name
     name.split(' ').first
   end

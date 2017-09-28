@@ -40,7 +40,7 @@ namespace :email_payment do
   end
 
   #rake email_payment:bus
-  #UsersLotMailer.escolha_p(user).deliver_now
+  #UsersLotMailer.escolha_q(user).deliver_now
   task bus: :environment do
     users = User.pays
     counter = 0;
