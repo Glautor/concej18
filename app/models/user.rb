@@ -204,6 +204,31 @@ class User < ApplicationRecord
     false
   end
 
+  def humanize secs
+    [
+      [60, :segundos],
+      [60, :minutos],
+      [24, :horas],
+      [365, :dias],
+      [100, :anos]
+    ].map do |count, name|
+      if secs > 0
+        secs, n = secs.divmod(count)
+        "#{n.to_i} #{name}"
+      end
+    end.compact.reverse.join(' ')
+  end
+require 'time'
+
+  def idade
+    if self.birthday!=nil
+      date_of_birth = (self.birthday).strftime('%Y/%m/%d')
+      distance = Time.new - Time.parse(date_of_birth)
+      humanize(distance)
+      #self.birthday
+    end
+  end
+
 
 
 
