@@ -218,7 +218,6 @@ class User < ApplicationRecord
       end
     end.compact.reverse.join(' ')
   end
-require 'time'
 
   def idade
     if self.birthday!=nil

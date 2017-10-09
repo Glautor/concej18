@@ -17,7 +17,7 @@
                   <thead>
                      <tr>
                         <th>Nome</th>
-                        <th>CPF</th>
+                        <th>Email</th>
                         <th>Lote</th>
                         <th>EJ</th>
                         <th>Federada?</th>
@@ -29,7 +29,7 @@
                      <% @users.each do |users| %>
                      <tr>
                         <td><%= users.name.nil? ? 'Não Informado' : users.name.titleize%></td>
-                        <td><%= users.cpf%></td>
+                        <td><%= users.email%></td>
                         <td>
                            <%= users.lot.nil? ? 'Não Alocado' : "Lote #{users.lot.number}"%>
                         </td>
