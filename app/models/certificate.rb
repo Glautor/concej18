@@ -7,7 +7,7 @@ class Certificate
   PDF_OPTIONS = {
     :page_size   => "A5",
     :page_layout => :landscape,
-    :background  => "public/images/congressista.png",
+    :background  => "public/images/certificado.png",
     :background_scale => 0.24,
     :margin      => [35, 5]
   }
@@ -22,11 +22,11 @@ class Certificate
       if @current_user.name.size >= 42
         pdf.move_down 80
        else
-        pdf.move_down 101
+        pdf.move_down 86
        end
-      pdf.font Rails.root.join("public/fonts/biko/Biko_Bold.ttf")
+      pdf.font Rails.root.join("public/fonts/oswald/Oswald-Regular.ttf")
       pdf.fill_color "FFFFFF" 
-      pdf.text "#{@current_user.name.upcase}", :inline_format => true, :align => :center, :size => 23
+      pdf.text "#{@current_user.name.titleize}", :inline_format => true, :align => :center, :size => 23
     end
   end
 

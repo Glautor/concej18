@@ -85,10 +85,10 @@ class Crew::UsersController < Crew::BaseController
   def certificate_update
     if @user.update_attributes(:certificate => params[:value])
       if params[:value] == "SIM"
-        render :status => 200, :json => {infos: "Certificado liberado. E-mail enviado para o congressista."}
+        render :status => 200, :json => {infos: "Certificado bloqueado."}
         #UsersLotMailer.certificate(@user).deliver_now
       else
-        render :status => 200, :json => {infos: "Certificado bloqueado."}
+        render :status => 200, :json => {infos: "Certificado liberado."}
       end
     else
       render :status => 421, :json => {infos: "Erro não identificado"}

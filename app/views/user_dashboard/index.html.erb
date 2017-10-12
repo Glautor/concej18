@@ -362,7 +362,7 @@
          <!-- /.nav-tabs-custom -->
       </div>
 
-      <% if true==false %>
+      <%unless @user.certificate=="SIM"%>
       <div class="col-md-9 pull-right">
          <div class="box box-primary" >
              <div class="box-header">
@@ -370,17 +370,14 @@
             </div>
             <div class="box-body" style="text-align: left;">
 
-            <%unless @user.certificate=="SIM"%>
-            * Para ter acesso ao certificado é necessário responder a pesquisa de satisfação.<br>
-            * Após responder, aguarde nossa confirmação, iremos lhe avisar por e-mail ;)<br>
-            <br><a href="https://goo.gl/forms/7S23jnEVXW5H8gEQ2" target="_blank"><button type="button" class="btn btn-block btn-primary">Responder a Pesquisa</button></a>
-            <%else%>
+            
                <a href="/certificate.pdf" target="_blank"><button type="button" class="btn btn-block btn-success">Abrir Certificado</button></a>
-            <%end%>
+           
             </div>
          </div>
       </div>   
       <%end%>
+  
 
 
 
