@@ -38,13 +38,13 @@ class User < ApplicationRecord
   scope :pays_total, -> { joins(:payment).where("payments.portion_paid=payments.portions") }
   scope :qnt_pays_partial, -> { joins(:payment).where("payments.portion_paid>0").where("payments.portion_paid!=payments.portions") }
 
-  validate :check_limit_room_in_model
+  # validate :check_limit_room_in_model
 
-  def check_limit_room_in_model
-    unless room.nil?
-      errors.add(:room_id, "Cheio") if room.users.count >= room.capacity
-    end
-  end
+  # def check_limit_room_in_model
+  #   unless room.nil?
+  #     errors.add(:room_id, "Cheio") if room.users.count >= room.capacity
+  #   end
+  # end
 
   # PARA O RELATORIO - EXCEL
   # Verificar se o cadastro possui associação com o facebook
