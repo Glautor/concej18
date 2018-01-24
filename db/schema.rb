@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20170925134439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
