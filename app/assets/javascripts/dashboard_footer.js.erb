@@ -71,14 +71,14 @@ $(function() {
               buttons: [
                 {
                     extend: 'csv',
-                    title: 'EGEJ 2017 - CSV - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'EGEJ 2018 - CSV - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
                 },
                 {  
                      extend: 'excel',
-                    title: 'EGEJ 2017 - EXCEL - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'EGEJ 2018 - EXCEL - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
@@ -86,7 +86,7 @@ $(function() {
 
                 {
                     extend: 'pdf',
-                    title: 'EGEJ 2017 - PDF - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'EGEJ 2018 - PDF - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
@@ -149,14 +149,14 @@ $(function() {
               buttons: [
                 {
                     extend: 'csv',
-                    title: 'EGEJ 2017 - CSV - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'EGEJ 2018 - CSV - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
                 },
                 {  
                      extend: 'excel',
-                    title: 'EGEJ 2017 - EXCEL - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'EGEJ 2018 - EXCEL - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
@@ -164,7 +164,7 @@ $(function() {
 
                 {
                     extend: 'pdf',
-                    title: 'EGEJ 2017 - PDF - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'EGEJ 2018 - PDF - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
@@ -504,8 +504,8 @@ if ($("#edit_user_form").length) {
 }
 
 function popitup(url) {
-    //newwindow=window.open(url,'Tire sua dúvida - EGEJ 2017','height=500,width=500');
-    newwindow = window.open('http://google.com.br', 'Tire sua dúvida - EGEJ 2017','height=500,width=500'); 
+    //newwindow=window.open(url,'Tire sua dúvida - EGEJ 2018','height=500,width=500');
+    newwindow = window.open('http://google.com.br', 'Tire sua dúvida - EGEJ 2018','height=500,width=500'); 
     if (window.focus) {newwindow.focus()}
     return false;
 }
@@ -591,7 +591,7 @@ jQuery(document).ready(function($) {
   ----------------------------------------------------------------------*/
   if($(".room_time").length>0) {
     $(function () {
-      var austDay = new Date(2017, 08, 27, 22, 0, 0);
+      var austDay = new Date(2018, 05, 27, 22, 00, 00);
       $('.room_time').countdown({until: austDay, onTick: watchGti });
     });
     var first = false;
@@ -607,7 +607,7 @@ jQuery(document).ready(function($) {
 
   if($(".event_time").length>0) {
     $(function () {
-      var austDay = new Date(2017, 08, 25, 19, 00, 0);
+      var austDay = new Date(2018, 08, 25, 19, 00, 00);
       $('.event_time').countdown({until: austDay, onTick: watchGti });
     });
     var first = false;
