@@ -14,7 +14,7 @@ class CertificatesController < BaseController
         filedir = "tmp/PD#{current_user.id}F.pdf"
 
         pdf = Certificate.new(current_user, filedir).render
-        send_data pdf, filename: "certificado_egej_2017.pdf", type: "application/pdf", disposition: "inline"
+        send_data pdf, filename: "certificado_egej_2018.pdf", type: "application/pdf", disposition: "inline"
 
 
         #current_user.certificate = File.open(filedir)
