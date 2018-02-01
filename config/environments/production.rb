@@ -85,13 +85,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => 'www.egej.com.br' }
+  config.action_mailer.default_url_options = { :host => 'LINK DA TELA DE LOGIN' }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :deliver_with => :deliver_now,
-    :email_prefix => "[EGEJ 17 2017] ",
-    :sender_address => %{"notifier" <exceptions@ecej17.com>},
-    :exception_recipients => %w{pixelzip0@gmail.com}
+    :email_prefix => "[EGEJ 18 2018] ",
+    :sender_address => %{"notifier" <EMAIL DAQUELE QUE IRÁ ENVIAR A MENSAGEM>},
+    :exception_recipients => %w{EMAIL QUE RECEBERÁ AS NOTIFICAÇÕES -> pixelzip0@gmail.com}
   }
 end
