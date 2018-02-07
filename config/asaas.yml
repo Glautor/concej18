@@ -4,11 +4,12 @@
 #NÃO PODE SER DIAS DE VENCIMENTO DIFERENTES
 #para ver a alteração no dashboard_footer.erb é necessário fazer uma alteração lá (saltar uma linha porx) - para compilar o arquivo dnv
 vencimentos:
-  mes1: '21/09/2017'
-  mes2: '01/01/2017'
-  mes3: '01/01/2017'
-  mes4: '01/01/2017'
+#---------- ALTERAR DATAS QUANDO A EMPRESA DECIDIR QUAIS SÃO -----------#
 
+  mes1: '**/**/****'
+  mes2: '**/**/****'
+  mes3: '**/**/****'
+  mes4: '**/**/****'
 
 # SEgundo lote 
 #  mes1: '21/08/2017'
