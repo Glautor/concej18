@@ -6,10 +6,9 @@
 vencimentos:
 #---------- ALTERAR DATAS QUANDO A EMPRESA DECIDIR QUAIS SÃO -----------#
 
-  mes1: '**/**/****'
-  mes2: '**/**/****'
-  mes3: '**/**/****'
-  mes4: '**/**/****'
+  mes1: '06/04/2018'
+  mes2: '30/04/2018'
+  mes3: '18/05/2018'
 
 # SEgundo lote 
 #  mes1: '21/08/2017'
