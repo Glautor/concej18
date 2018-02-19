@@ -90,7 +90,7 @@ Rails.application.configure do
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :deliver_with => :deliver_now,
-    :email_prefix => "[EGEJ 18 2018] ",
+    :email_prefix => "[EGEJ 18] ",
     :sender_address => %{"notifier" <glautorgcs@gmail.com>}, #EMAIL DAQUELE QUE IRÁ ENVIAR A MENSAGEM
     :exception_recipients => ['glautorgcs@gmail.com','marcelfonteles@gmail.com'] #EMAIL QUE RECEBERÁ AS NOTIFICAÇÕES 
   }
