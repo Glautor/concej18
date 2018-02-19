@@ -9,23 +9,15 @@ module Asaas
       m1 = vencimento_boletos['mes1'].split('/')
       m2 = vencimento_boletos['mes2'].split('/')
       m3 = vencimento_boletos['mes3'].split('/')
-      m4 = vencimento_boletos['mes4'].split('/')
 
       mes1 = DateTime.new(m1[2].to_i, m1[1].to_i, m1[0].to_i, 23, 59, 59 , '-3')
       mes2 = DateTime.new(m2[2].to_i, m2[1].to_i, m2[0].to_i, 23, 59, 59 , '-3')
       mes3 = DateTime.new(m3[2].to_i, m3[1].to_i, m3[0].to_i, 23, 59, 59 , '-3')
-      mes4 = DateTime.new(m4[2].to_i, m4[1].to_i, m4[0].to_i, 23, 59, 59 , '-3')
 
       today = DateTime.now
 
 
-      if mes4>=today
-        if installmentCount <=4
-          installmentCount
-        else
-          4
-        end
-      elsif mes3>=today
+      if mes3>=today
         if installmentCount <=3
           installmentCount
         else
@@ -50,12 +42,10 @@ module Asaas
       m1 = vencimento_boletos['mes1'].split('/')
       m2 = vencimento_boletos['mes2'].split('/')
       m3 = vencimento_boletos['mes3'].split('/')
-      m4 = vencimento_boletos['mes4'].split('/')
 
       mes1 = DateTime.new(m1[2].to_i, m1[1].to_i, m1[0].to_i, 23, 59, 59 , '-3')
       mes2 = DateTime.new(m2[2].to_i, m2[1].to_i, m2[0].to_i, 23, 59, 59 , '-3')
       mes3 = DateTime.new(m3[2].to_i, m3[1].to_i, m3[0].to_i, 23, 59, 59 , '-3')
-      mes4 = DateTime.new(m4[2].to_i, m4[1].to_i, m4[0].to_i, 23, 59, 59 , '-3')
 
       today = DateTime.now
 
@@ -65,8 +55,6 @@ module Asaas
         "#{m2[2]}-#{m2[1]}-#{m2[0]}"
       elsif mes3>=today
         "#{m3[2]}-#{m3[1]}-#{m3[0]}"
-      elsif mes4>=today
-        "#{m4[2]}-#{m4[1]}-#{m4[0]}"
       end
 
     end

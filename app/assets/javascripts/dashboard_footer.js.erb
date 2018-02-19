@@ -280,12 +280,10 @@ function change_payment_parts(sel, price){
         m1 = vencimento_boletos['mes1'].split('/')
         m2 = vencimento_boletos['mes2'].split('/')
         m3 = vencimento_boletos['mes3'].split('/')
-        m4 = vencimento_boletos['mes4'].split('/')
     %>
     var mes1 = moment('<%="#{m1[2]}-#{m1[1]}-#{m1[0]}"%>T23:59:59');
     var mes2 = moment('<%="#{m2[2]}-#{m2[1]}-#{m2[0]}"%>T23:59:59');
     var mes3 = moment('<%="#{m3[2]}-#{m3[1]}-#{m3[0]}"%>T23:59:59');
-    var mes4 = moment('<%="#{m4[2]}-#{m4[1]}-#{m4[0]}"%>T23:59:59');
     var data_atual = moment();
 
     if (mes1 >= data_atual) {
@@ -294,8 +292,6 @@ function change_payment_parts(sel, price){
         data_boleto = mes2
     } else if (mes3 >= data_atual) {
         data_boleto = mes3
-    } else if (mes4 >= data_atual) {
-        data_boleto = mes4
     }
 
     partions = sel.value ? sel.value : 1
@@ -322,12 +318,6 @@ function change_payment_parts(sel, price){
 
     }
 
-    if (partions >= 4) {
-        var data_f = mes4.format('DD/MM/YYYY');
-        txt += '<div class="radio"><label>';
-        txt += '* Vencimento da 4° parcela: ' + data_f + ' ';
-        txt += '</label>';
-    }
 
     txt += '<div class="radio"><label>';
     txt += partions + ' x ' + ($('#price_js').html() / partions).toFixed(2);
