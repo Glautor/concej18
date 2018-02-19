@@ -32,7 +32,7 @@ class UsersLotMailer < ApplicationMailer
 
   def alert_certificate(user)
     @user = user
-    mail to: user.email, subject: "[EGEJ 2018] - Atenção Tripulantes do EGEJ 17!"
+    mail to: user.email, subject: "[EGEJ 2018] - Atenção Tripulantes do EGEJ 18!"
   end
 
   
