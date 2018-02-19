@@ -483,7 +483,7 @@ DEPENDENCIES
   data-confirm-modal
   devise
   devise-i18n
-  exception_notification (~> 4.0.1)
+  exception_notification
   faker
   fog
   font-awesome-sass

@@ -45,8 +45,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'active_enum', '~> 1.0.0.pre'
 gem 'data-confirm-modal'
 gem "paranoia", "~> 2.2"
-#gem 'exception_notification'
-gem 'exception_notification', '~> 4.0.1'
+gem 'exception_notification'
 gem 'ckeditor'
 gem "awesome_print"
 #CERTIFICADO PDF
