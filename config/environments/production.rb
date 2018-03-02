@@ -91,7 +91,7 @@ Rails.application.configure do
   :email => {
     :deliver_with => :deliver_now,
     :email_prefix => "[EGEJ 18] ",
-    :sender_address => %{"notifier" <experiencia@fejers.org.br>}, #EMAIL DAQUELE QUE IRÁ ENVIAR A MENSAGEM
+    :sender_address => %{"notifier" <glautorgcs@gmail.com>}, #EMAIL DAQUELE QUE IRÁ ENVIAR A MENSAGEM
     :exception_recipients => ['glautorgcs@gmail.com','marcelfonteles@gmail.com'] #EMAIL QUE RECEBERÁ AS NOTIFICAÇÕES 
   }
 end
