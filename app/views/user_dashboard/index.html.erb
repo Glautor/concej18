@@ -361,21 +361,22 @@
          </div>
          <!-- /.nav-tabs-custom -->
       </div>
+      <%if false == true %>
+         <%unless @user.certificate=="SIM"%>
+         <div class="col-md-9 pull-right">
+            <div class="box box-primary" >
+                <div class="box-header">
+                  <h3 class="box-title">Gerar Certificado</h3>
+               </div>
+               <div class="box-body" style="text-align: left;">
 
-      <%unless @user.certificate=="SIM"%>
-      <div class="col-md-9 pull-right">
-         <div class="box box-primary" >
-             <div class="box-header">
-               <h3 class="box-title">Gerar Certificado</h3>
+               
+                  <a href="/certificate.pdf" target="_blank"><button type="button" class="btn btn-block btn-success">Abrir Certificado</button></a>
+              
+               </div>
             </div>
-            <div class="box-body" style="text-align: left;">
-
-            
-               <a href="/certificate.pdf" target="_blank"><button type="button" class="btn btn-block btn-success">Abrir Certificado</button></a>
-           
-            </div>
-         </div>
-      </div>   
+         </div>   
+         <%end%>
       <%end%>
   
 
