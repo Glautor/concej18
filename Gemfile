@@ -56,6 +56,10 @@ gem 'cpf_faker'
 gem 'jquery-datatables-rails'
 gem 'ajax-datatables-rails'
 
+gem "fog-google"
+gem "google-api-client", "> 0.8.5", "< 0.9"
+gem "mime-types"
+
 
 
 group :development, :test do
