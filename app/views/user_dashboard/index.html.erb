@@ -17,7 +17,7 @@
                <h3 class="profile-username text-center"><%= @user.name.nil? ? @user.email : @user.two_names.mb_chars.upcase  %></h3>
                <p class="text-muted text-center"><%= @user.junior_enterprise_new %> <%= (@user.federation.blank?) ?  '' : "- #{@user.federation}"%> - <%=@federado%></p>
 
-              <div align="center"><div class="fb-share-button" data-href="https://egej.com.br/login" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fegej.com.br%2Flogin&amp;src=sdkpreparse">Compartilhar</a></div></div>
+              <div align="center"><div class="fb-share-button" data-href="http://egej18.herokuapp.com" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fegej18.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div></div>
 
 
                <p class="text-muted text-center"></p>
@@ -510,6 +510,6 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9&appId=340337046468098";
+  js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=340337046468098&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
