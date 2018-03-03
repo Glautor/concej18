@@ -25,7 +25,7 @@ module EgejNovo
     require "#{Rails.root}/lib/asaas/asaas.rb"
 
     if Rails.env.development? || Rails.env.test?
-      Asaas.api_key = 'ae51734d5b323d0c0c236240348aa0c1020d8410b0f813c449d15608a09fbe03'
+      Asaas.api_key = 'd67aa48355a6e1f7dc4bf5f3fd5968c1726cc83419a1f6fdfb4c28dd7494a425'
     else
       Asaas.api_key = ENV['ASAAS_KEY']
     end
