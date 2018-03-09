@@ -5,8 +5,8 @@ lot0 = Lot.new do |lot|
   lot.name = "Lote promocional"
   lot.number = 0
   lot.limit = 10
-  lot.start_date = DateTime.new(2018, 3, 8, 21, 59, 59 , '-3')
-  lot.end_date = DateTime.new(2018, 3, 12, 23, 59, 59 , '-3')
+  lot.start_date = DateTime.new(2018, 3, 12, 21, 59, 59 , '-3')
+  lot.end_date = DateTime.new(2018, 3, 16, 23, 59, 59 , '-3')
   lot.value_federated = 335
   lot.value_not_federated = 345
 end
