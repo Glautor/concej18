@@ -6,12 +6,12 @@ default: &default
 
 development:
   <<: *default
-  database: egej_development
+  database: concej_development
 test:
   <<: *default
-  database: egej_test
+  database: concej_test
 production:
   <<: *default
-  database: egej_production
+  database: concej_production
   username: patrick
   password: <%= ENV['CONCEITO_DATABASE_PASSWORD'] %>
