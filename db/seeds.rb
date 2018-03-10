@@ -1,4 +1,4 @@
-Admin.create(email: 'egej@admin.com', password: 'egej@159')
+Admin.create(email: 'concej@admin.com', password: 'concej@159')
 
 #Lote promocional
 lot0 = Lot.new do |lot|
