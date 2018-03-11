@@ -1,10 +1,10 @@
 <section class="content-header">
    <h1>
-      Finalizar Cadastro
+      Editar Cadastro
       <small></small>
    </h1>
 </section>
-<%= form_for @user, url: { :action => "update" }, html: { id: "edit_user_form", method: :put } do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "edit_user_form"}) do |f| %>
 <% if @user.errors.any? %>
 <script>
    $(document).ready(function() {
@@ -14,16 +14,6 @@
 <% end %>
 <!-- Main content -->
 <section class="content">
-  <% unless @dados.nil? %>
-   <div class="row">
-      <div class="col-md-12">
-         <div class="callout callout-grasi">
-            <h4>Quem passa pelo nosso návio, nunca será esquecido! <span style="font-size:23px"><span style="font-family:verdana,arial,helvetica,sans-serif; line-height:normal; text-align:center">⚓</span></span></h4>
-            <p>E aí marinheiro, beleza!? </br> Achamos suas informações guardadas em nosso baú, mas pedimos que você verifique se está tudo correto :).</br> Após isso, conclua seu cadastro e venha participar desse evento incrível! \o/ </br></br> -- Fique à vontade para mudar qualquer coisa :)  <i class="fa fa-ship" aria-hidden="true"></i></p>
-         </div>
-      </div>
-   </div>
-   <% end %>
    <div class="box  box-info">
       <!-- /.box-header -->
       <div class="box-body">
@@ -86,7 +76,8 @@
                   <label>Gênero</label>
                   <%= f.select(:gender,['Masculino', 'Feminino', 'Prefiro não declarar'], {}, { :class => 'form-control select2' }) %>
                </div>
-
+               <!-- /.form-group -->
+         
                <!-- /.form-group -->
             </div>
             <div class="col-md-12">
@@ -118,7 +109,7 @@
                      <span class="input-group-addon">
                      <%= f.select(:federation_check,['Não', 'Sim', 'Pós-júnior'], {},style: 'height: 20px') %>
                      </span>
-                     <%= f.select(:federation, ['Não confederada', 'RioJunior (RJ)', 'UNIJr-BA (BA)', 'SERJÚNIOR (SE)', 'RN Júnior (RN)', 'PB Júnior (PB)', 'Maranhão Júnior (MA)', 'Juniores (ES)', 'Goiás Júnior (GO)', 'FEJESP (SP)', 'FEJESC (SC)', 'FEJERS (RS)', 'FEJEPE (PE)', 'FEJEPAR (PR)', 'FEJEMS (MS)', 'FEJEMG (MG)', 'FEMTEJ (MT)', 'FEJECE (CE)', 'FEJEA (AL)', 'Concentro (DF)', 'Piauí Junior (PI)', 'Pará Júnior (PA)', 'Acre Júnior (AC)'], {include_blank: 'Selecione sua federação'}, class: "form-control select2", :id => 'federation') %>
+                     <%= f.select(:federation, ['Não confederada', 'RioJunior (RJ)', 'UNIJr-BA (BA)', 'SERJÚNIOR (SE)', 'RN Júnior (RN)', 'PB Júnior (PB)', 'Maranhão Júnior (MA)', 'Juniores (ES)', 'Goiás Júnior (GO)', 'FEJESP (SP)', 'FEJESC (SC)', 'FEJERS (RS)', 'FEJEPE (PE)', 'FEJEPAR (PR)', 'FEJEMS (MS)', 'FEJEMG (MG)', 'FEMTEJ (MT)', 'FEJECE (CE)', 'FEJEA (AL)', 'Concentro (DF)', 'Piauí Junior (PI)', 'Pará Júnior (PA)', 'Acre Júnior (AC)'], {include_blank: 'Selecione sua federação'}, class: "form-control select2", :id => 'federation') %>    
                   </div>
                </div>
                <!-- /.form-group -->
@@ -135,20 +126,16 @@
                   <%= f.text_field :junior_enterprise, :id => 'junior_enterprise', placeholder: "Nome da EJ", class:"form-control", "data-toggle"=>"tooltip" ,"title"=>"", "data-original-title"=>"Informe sua EJ." %>
                </div>
 
-            </div>
-
-               <!-- /.form-group -->
                <div class="form-group">
                   <label>Nome Completo da Universidade</label>
                   <%= f.text_field :university, :id => 'university', placeholder: "Universidade", class: 'form-control'%>
                </div>
+            </div>
                <!-- /.form-group -->
             </div>
             <!-- /.col -->
          </div>
          <!-- /.row -->
-      </div>
-      <!-- /.box-body -->
    </div>
    <!-- /.box -->
    <div class="box box-default">
@@ -182,7 +169,7 @@
                <!-- /.form-group -->
                <div class="form-group">
                   <label>Endereço</label>
-                  <%= f.text_field :address, placeholder: "Rua, Bairro e número", id:"street", class: 'form-control', "data-toggle"=>"tooltip" ,"title"=>"", "data-original-title"=>"Digite o número."%>
+                  <%= f.text_field :address, placeholder: "Rua, Bairro e número", id:"street", class: 'form-control'%>
                </div>
                <!-- /.form-group -->
             </div>
@@ -223,7 +210,7 @@
             <div class="col-md-6">
                <div class="form-group">
                   <label>Nome do responsável</label>
-                  <%= f.text_field :name_parents, placeholder: "Pai, Mãe, avós", id:"nameresp", class: 'form-control '%>
+                  <%= f.text_field :name_parents, placeholder: "Pai, Mãe, avós", id:"phoneresp", class: 'form-control'%>
                </div>
                <!-- /.form-group -->
             </div>
@@ -244,5 +231,4 @@
    <!-- /.box -->
 </section>
 <% end %>
-
 <%= javascript_include_tag 'cep' %>
