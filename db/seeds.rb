@@ -4,11 +4,11 @@ Admin.create(email: 'concej@admin.com', password: 'concej@159')
 lot0 = Lot.new do |lot|
   lot.name = "Lote promocional"
   lot.number = 0
-  lot.limit = 10
-  lot.start_date = DateTime.new(2018, 3, 12, 21, 59, 59 , '-3')
+  lot.limit = 34
+  lot.start_date = DateTime.new(2018, 3, 12, 20, 50, 50 , '-3')
   lot.end_date = DateTime.new(2018, 3, 16, 23, 59, 59 , '-3')
-  lot.value_federated = 335
-  lot.value_not_federated = 345
+  lot.value_federated = 270
+  lot.value_not_federated = 270
 end
 lot0.save!
 
@@ -47,3 +47,6 @@ lot3 = Lot.new do |lot|
   lot.value_not_federated = 405
 end
 lot3.save!
+
+
+
