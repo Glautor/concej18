@@ -303,7 +303,7 @@ function change_payment_parts(sel, price){
         txt += '</label>';
     }
 
-/*    if (partions >= 2) {
+    if (partions >= 2) {
         var data_f = mes2.format('DD/MM/YYYY');
         txt += '<div class="radio"><label>';
         txt += '* Vencimento da 2° parcela: ' + data_f + ' ';
@@ -317,7 +317,7 @@ function change_payment_parts(sel, price){
         txt += '</label>';
 
     }
-*/
+
 
     txt += '<div class="radio"><label>';
     txt += partions + ' x ' + ($('#price_js').html() / partions).toFixed(2);
