@@ -71,14 +71,14 @@ $(function() {
               buttons: [
                 {
                     extend: 'csv',
-                    title: 'CONCEJ 2018 - CSV - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'CONCEJ 18 - CSV - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
                 },
                 {  
                      extend: 'excel',
-                    title: 'CONCEJ 2018 - EXCEL - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'CONCEJ 18 - EXCEL - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
@@ -86,7 +86,7 @@ $(function() {
 
                 {
                     extend: 'pdf',
-                    title: 'CONCEJ 2018 - PDF - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
+                    title: 'CONCEJ 18 - PDF - '+ moment().format('DD/MM/YYYY HH:mm:ss') + ' - '+$('.box-title').html(),
                     exportOptions: {
                         columns: "thead th:not(.noExport)"
                     }
@@ -329,7 +329,7 @@ function change_payment_parts(sel, price){
 
 $(function() {
     
-    /*
+    
     var transport = $('#transport').val();
     if (transport === '') {
         $("#transport_check").prop("checked", false);
@@ -350,7 +350,7 @@ $(function() {
     } else {
         $("#transport").prop('disabled', true);
     }
-    */
+    
 });
 
 
@@ -496,7 +496,7 @@ if ($("#edit_user_form").length) {
 
 function popitup(url) {
     //newwindow=window.open(url,'Tire sua dúvida - CONCEJ 2018','height=500,width=500');
-    newwindow = window.open('https://drive.google.com/file/d/1Xnaf_QFLlgw1h5ycZIDvLyJWrCucHc0k/view', 'Tire sua dúvida - CONCEJ 2018','height=500,width=500'); 
+    newwindow = window.open('https://drive.google.com/open?id=1FHenFTP4eR3gYz2j4_XS8l2OrWxowz2p', 'Tire sua dúvida - CONCEJ 2018','height=500,width=500'); 
     if (window.focus) {newwindow.focus()}
     return false;
 }
@@ -582,7 +582,7 @@ jQuery(document).ready(function($) {
   ----------------------------------------------------------------------*/
   if($(".room_time").length>0) {
     $(function () {
-      var austDay = new Date(2018, 04, 22, 22, 00, 00);
+      var austDay = new Date(2018, 05, 20, 22, 00, 00);
       $('.room_time').countdown({until: austDay, onTick: watchGti });
     });
     var first = false;
@@ -598,7 +598,7 @@ jQuery(document).ready(function($) {
 
   if($(".event_time").length>0) {
     $(function () {
-      var austDay = new Date(2018, 04, 24, 22, 00, 00);
+      var austDay = new Date(2018, 05, 10, 19, 00, 00);
       $('.event_time').countdown({until: austDay, onTick: watchGti });
     });
     var first = false;
