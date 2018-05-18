@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def room_open?
-    day_open = DateTime.new(2018, 05, 18, 19, 0, 0 , '-3')
+    day_open = DateTime.new(2018, 05, 18, 18, 0, 0 , '-3')
     now = DateTime.now
     @room_open = (day_open>=now ? false : true)
 
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def event_open?
-    day_open = DateTime.new(2018, 05, 20, 19, 0, 0 , '-3')
+    day_open = DateTime.new(2018, 05, 20, 18, 0, 0 , '-3')
     now = DateTime.now
     @event_open = (day_open>=now ? false : true)
 
