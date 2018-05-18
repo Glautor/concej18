@@ -65,3 +65,4 @@ module Asaas
     end
   end
 end
+
