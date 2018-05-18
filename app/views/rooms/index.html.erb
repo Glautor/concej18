@@ -47,7 +47,8 @@
       <div class="col-md-4 <%=ha_membros ? 'ha_membros' : 'nao_ha_membros'%>" style="max-width: 370px">
          <div class="summary entry-summary dark_section" style="min-height: 324px">
             <div class="media">
-               <span style="position: absolute; margin-top: 10px; margin-left:10px;" class="badge bg-green title_room_<%= room.id%>" data-original-title="<%= !room.name.nil? ? "Atualizado por: #{room.name[1]}" : '' %>" data-toggle= "tooltip">N° <%= room.number %> - <span class="name_room_<%= room.id%>"><%= room.name.any? ? room.name[0] : 'Sem nome' %></span></span>
+               <span style="position: absolute; margin-top: 10px; margin-left:10px;" class="badge bg-green title_room_<%= room.id%>" data-original-title="<%= !room.name.nil? ? "Atualizado por: #{room.name[1]}" : '' %>" data-toggle= "tooltip">N° <%= room.number %>
+               </span>
           
               <%if room.users.include? @user%>
               <span style="position: absolute; margin-top: 30px; margin-left:10px; margin-bottom: -3px; background-color: #fff; " class="text-light-blue badge"><%= room_name_link(room) %></span>
@@ -55,7 +56,7 @@
 
                <span class="hotel-vagas"><%= room.extra_info %></span>
                <img src="/images/egej/quarto.jpg" width="370" height="200" alt="">
-               <span class="hotel-ventilacao"><img src="/images/<%= room.air==true ? 'ar' : 'ventilador' %>.png" alt=""></span>
+               <!-- <span class="hotel-ventilacao"><img src="/images/<%= room.air==true ? 'ar' : 'ventilador' %>.png" alt=""></span> -->
                <% if current_user.room == room %>
                <div id="app"></div>
                <%end %>

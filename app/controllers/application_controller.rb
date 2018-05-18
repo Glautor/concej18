@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :manu
   before_action :user_activity
   before_action :prepare_exception_notifier
-  #before_action :room_open?
-  #before_action :event_open?
-  #before_action :authenticate
+#  before_action :room_open?
+#  before_action :event_open?
+#  before_action :authenticate
   protected
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def room_open?
-    day_open = DateTime.new(2018, 05, 20, 22, 0, 0 , '-3')
+    day_open = DateTime.new(2018, 05, 18, 19, 0, 0 , '-3')
     now = DateTime.now
     @room_open = (day_open>=now ? false : true)
 
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def event_open?
-    day_open = DateTime.new(2018, 05, 10, 19, 0, 0 , '-3')
+    day_open = DateTime.new(2018, 05, 20, 19, 0, 0 , '-3')
     now = DateTime.now
     @event_open = (day_open>=now ? false : true)
 

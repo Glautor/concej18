@@ -48,3 +48,32 @@ end
 #     Rails.logger.info "Não foi possível adicionar #{rooms.name}. Erros:\n\t #{rooms.errors.full_messages}"
 #   end
 # end
+
+
+
+
+
+# vai=1
+# while vai<43 do
+# Room.create(capacity:6, number:vai , extra_info:"6 beliches", hotel_id:1, air:false)
+# vai += 1
+# end
+
+
+
+
+# for i in 1..43
+#   rooms = Room.new do |room|
+#     room.name = "quarto #{i}"
+#     room.capacity = 6
+#     room.number = i + 99
+#     room.extra_info = "6 beliches"
+#     room.hotel_id =  1
+#   end
+  
+#   if rooms.save!
+#     Rails.logger.info "#{rooms.name} foi adicionado"
+#   else
+#     Rails.logger.info "Não foi possível adicionar #{rooms.name}. Erros:\n\t #{rooms.errors.full_messages}"
+#   end
+# end
