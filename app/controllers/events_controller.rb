@@ -4,6 +4,7 @@ class EventsController < BaseController
   before_action :if_event_close_redirect
 #  before_action :user_must_have_paid
 
+
   before_action :close_insert_exit_event, only: [:enter_event,:exit_event]
 
   def close_insert_exit_event
