@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :prepare_exception_notifier
   before_action :room_open?
   before_action :event_open?
-  before_action :authenticate
+#  before_action :authenticate
   protected
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
