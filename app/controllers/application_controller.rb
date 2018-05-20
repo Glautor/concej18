@@ -156,7 +156,10 @@ class ApplicationController < ActionController::Base
   end
 
   def user_must_have_paid
-
+    if current_user.payment.nil? || !current_user.payment.paid?
+      flash[:notice] =  "Por favor, efetue o pagamento."
+      redirect_to authenticated_user_root_path
+    end
   end
 
   def verify_user_lot
