@@ -3,9 +3,9 @@ class RoomsController < BaseController
   before_action :verify_register_conclusion
   before_action :get_hotel, except: [:change_name]
   before_action :if_room_close_redirect
-  before_action :user_must_have_paid
+#  before_action :user_must_have_paid
 
-  before_action :close_insert_exit_room, only: [:insert_current_user_into_room,:exit_room]
+#  before_action :close_insert_exit_room, only: [:insert_current_user_into_room,:exit_room]
 
   def close_insert_exit_room
     if get_admin.nil?

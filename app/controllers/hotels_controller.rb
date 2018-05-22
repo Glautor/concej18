@@ -2,7 +2,7 @@ class HotelsController < BaseController
   before_action :get_user
   before_action :verify_register_conclusion
   before_action :if_room_close_redirect
-  before_action :user_must_have_paid
+#  before_action :user_must_have_paid
   # VERIFICAR SE A PESSOA PAGOU..
 
   def index
