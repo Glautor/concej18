@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :user_activity
   before_action :prepare_exception_notifier
   before_action :room_open?
-#  before_action :event_open?
+  before_action :event_open?
 #  before_action :authenticate
   protected
   def authenticate
@@ -17,6 +17,12 @@ class ApplicationController < ActionController::Base
   def user_must_have_changed_ej
     if current_user.junior_enterprise == "Nome da sua EJ"
       redirect_to "/inscription/edit#nome_da_ej", alert: "Cadastre o nome da sua EJ"
+    end
+  end
+
+  def limit_user_for_lot
+    if current_user.lot.number != 0
+      redirect_to "/", alert: "Módulo não disponível no momento"
     end
   end
 
