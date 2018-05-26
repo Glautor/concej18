@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def user_must_have_changed_ej
     if @user.junior_enterprise == "Nome da sua EJ"
-      redirect_to "/inscription/edit#nome_da_ej", alert: "Cadastre o nome da sua EJ conforme o aviso na tela inicial especifica"
+      redirect_to "/inscription/edit#nome_da_ej", alert: "Cadastre o nome da sua EJ"
     end
   end
 
