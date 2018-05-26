@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :user_activity
   before_action :prepare_exception_notifier
   before_action :room_open?
-#  before_action :event_open?
+  before_action :event_open?
 #  before_action :authenticate
   protected
   def authenticate
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_must_have_changed_ej
-    if @user.junior_enterprise == "Nome da sua EJ"
+    if current_user.junior_enterprise == "Nome da sua EJ"
       redirect_to "/inscription/edit#nome_da_ej", alert: "Cadastre o nome da sua EJ"
     end
   end
