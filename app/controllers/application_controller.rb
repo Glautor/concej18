@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def limit_user_for_lot
+  def limit_user_for_lots_number
     if current_user.lot.number != 0
       redirect_to "/", alert: "Módulo não disponível no momento"
     end
