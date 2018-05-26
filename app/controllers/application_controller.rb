@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :user_activity
   before_action :prepare_exception_notifier
   before_action :room_open?
-  before_action :event_open?
+#  before_action :event_open?
 #  before_action :authenticate
   protected
   def authenticate
