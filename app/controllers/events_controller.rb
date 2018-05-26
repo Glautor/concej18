@@ -3,7 +3,7 @@ class EventsController < BaseController
   before_action :verify_register_conclusion
   before_action :if_event_close_redirect
   before_action :user_must_have_changed_ej
-#  before_action :limit_user_for_lots_number
+#  before_action :limitation_user_for_lots_number
 #  before_action :user_must_have_paid
 
 #  before_action :close_insert_exit_event, only: [:enter_event,:exit_event]

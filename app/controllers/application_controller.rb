@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :user_activity
   before_action :prepare_exception_notifier
   before_action :room_open?
-  before_action :event_open?
+#  before_action :event_open?
 #  before_action :authenticate
   protected
   def authenticate
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def limit_user_for_lots_number
+  def limitation_user_for_lots_number
     if current_user.lot.number != 0
       redirect_to "/", alert: "Módulo não disponível no momento"
     end
