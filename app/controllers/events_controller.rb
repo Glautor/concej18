@@ -13,8 +13,6 @@ class EventsController < BaseController
     end
   end
 
-
-
   def index
     @days = Event.join_events_by_time
   end
