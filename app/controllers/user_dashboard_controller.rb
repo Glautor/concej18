@@ -18,13 +18,6 @@ class UserDashboardController < BaseController
     end
 
 
-  def user_must_have_changed_ej
-    if @user.junior_enterprise == "Nome da EJ"
-      redirect_to authenticated_user_root_path
-      flash[:alert] = "Cadastre o nome da sua EJ conforme o aviso na tela inicial especifica"
-    end
-  end
-
     if @user.federation_check=='Sim'
       @federado = 'FEDERADA'
     elsif @user.federation_check=='Não'

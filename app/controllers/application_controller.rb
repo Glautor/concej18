@@ -14,6 +14,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_must_have_changed_ej
+    if @user.junior_enterprise == "Nome da sua EJ"
+      redirect_to authenticated_user_root_path
+      flash[:alert] = "Cadastre o nome da sua EJ conforme o aviso na tela inicial especifica"
+    end
+  end
+
   def room_open?
     day_open = DateTime.new(2018, 04, 24, 18, 0, 0 , '-3')
     now = DateTime.now
