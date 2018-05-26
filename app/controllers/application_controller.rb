@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def user_must_have_changed_ej
     if @user.junior_enterprise == "Nome da sua EJ"
-      redirect_to authenticated_user_root_path
+      redirect_to proc { edit_user_registration_path(@nome_da_ej) }
       flash[:alert] = "Cadastre o nome da sua EJ conforme o aviso na tela inicial especifica"
     end
   end
