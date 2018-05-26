@@ -12,14 +12,6 @@
    });
 </script>
 
-<style type="text/css">
-   #bordas{
-      border-width: 5px;
-      border-color: #32CD32;
-   }
-</style>
-
-
 <% end %>
 <!-- Main content -->
 <section class="content">
@@ -129,9 +121,9 @@
                <!-- /.form-group -->
             </div>
             <!-- /.col -->
-            <div id="bordas" class="col-md-6">
-               <div id="bordas" class="form-group">
-                  <label id="bordas">Nome da EJ</label>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label style="color:#32CD32;">Nome da EJ</label>
                   <%= f.text_field :junior_enterprise, :id => 'junior_enterprise', placeholder: "Empresa Junior", class:"form-control", "data-toggle"=>"tooltip" ,"title"=>"", "data-original-title"=>"Pós-júnior, informe a sua última EJ." %>
                </div>
 
