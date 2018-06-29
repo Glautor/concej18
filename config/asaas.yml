@@ -6,6 +6,6 @@
 vencimentos:
 #---------- ALTERAR DATAS QUANDO A EMPRESA DECIDIR QUAIS SÃO -----------#
 
-  mes1: '10/07/2018'
-  mes2: '10/08/2018'
-#  mes3: '10/06/2018'
+  mes1: '03/07/2018'
+  mes2: '10/07/2018'
+  mes3: '10/08/2018'
