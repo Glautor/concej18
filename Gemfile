@@ -48,6 +48,9 @@ gem "paranoia", "~> 2.2"
 gem 'exception_notification'
 gem 'ckeditor'
 gem "awesome_print"
+
+gem "nio4r", "~> 2.1.0"
+
 #CERTIFICADO PDF
 gem 'prawn-rails'
 gem 'faker'

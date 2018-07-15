@@ -38,6 +38,7 @@ module Asaas
       end
     end
 
+
     def self.data_vencimento
       m1 = vencimento_boletos['mes1'].split('/')
       m2 = vencimento_boletos['mes2'].split('/')
